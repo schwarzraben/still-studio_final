@@ -171,8 +171,10 @@ textarea{min-height:9rem;resize:vertical}
 </div>
 <script src="../assets/site.js"></script>
 <script>
-// URL do serviço que recebe as propostas (POST em JSON). Sem ela, o envio falha e nenhuma tela de sucesso é exibida.
-var FORM_ENDPOINT="";
+// Para onde vão as propostas: FormSubmit (formsubmit.co) encaminha cada envio para este e-mail.
+// Na PRIMEIRA proposta o FormSubmit manda um e-mail de ativação para esse endereço; clique em "Activate Form" uma única vez.
+var FORM_EMAIL="bystillstudio@gmail.com";
+var FORM_ENDPOINT="https://formsubmit.co/ajax/"+FORM_EMAIL;
 (function(){
  var T=(window.STILL&&window.STILL.T)||function(x){return x};
  var reduce=matchMedia("(prefers-reduced-motion:reduce)").matches;
@@ -226,9 +228,15 @@ var FORM_ENDPOINT="";
  async function send(data){
   if(FORM_ENDPOINT){
    var ac=new AbortController(),t=setTimeout(function(){ac.abort()},20000);
-   try{var r=await fetch(FORM_ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(data),signal:ac.signal});
+   /* e-mail organizado: assunto com o nome do cliente, tabela com rótulos e "responder" indo direto para o cliente */
+   var when=new Date(data.enviadoEm).toLocaleString("pt-BR",{dateStyle:"short",timeStyle:"short"});
+   var body={"_subject":"Nova proposta pelo site: "+data.nome+(data.empresa?" ("+data.empresa+")":""),"_template":"table","_captcha":"false","_replyto":data.email,
+    "Nome":data.nome,"E-mail":data.email,"WhatsApp":data.whats,"Instagram":data.insta||"-","Empresa ou projeto":data.empresa,"Tamanho da equipe":data.porte,
+    "O que oferecem":data.oferta,"Serviços":data.servico,"Prazo":data.prazo,"Como conheceu":data.origem,"Projeto e desafios":data.desafio,
+    "Idioma do site":(document.documentElement.lang||"pt-BR"),"Enviado em":when};
+   try{var r=await fetch(FORM_ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(body),signal:ac.signal});
     if(!r.ok)throw new Error("HTTP "+r.status);
-    try{var j=await r.clone().json();if(j&&j.success===false)throw new Error(j.error||"Envio recusado pelo servidor")}catch(x){if(x.message&&x.message!==""&&!(x instanceof SyntaxError))throw x}
+    try{var j=await r.clone().json();if(j&&(j.success===false||j.success==="false"))throw new Error(j.message||j.error||"Envio recusado pelo servidor")}catch(x){if(x.message&&x.message!==""&&!(x instanceof SyntaxError))throw x}
    }finally{clearTimeout(t)}
    return}
   if(window.claude&&claude.use){var db=await claude.use("db");if(db){await db.collection("propostas").add(data);return}}

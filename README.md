@@ -37,8 +37,17 @@ Está marcada com `noindex`.
 ## Publicar
 Funciona em qualquer hospedagem estática (Vercel, Netlify, Cloudflare Pages, GitHub Pages): envie a pasta inteira.
 
-## ANTES de divulgar (2 itens obrigatórios)
-1. Receber as propostas: em `proposta/index.html`, preencha `FORM_ENDPOINT` (perto do fim do arquivo)
-   com a URL do serviço que recebe POST em JSON (Formspree, Google Apps Script, Make, Zapier, backend próprio).
+## Propostas por e-mail
+O formulário (`proposta/index.html`) envia cada proposta para **bystillstudio@gmail.com** pelo FormSubmit
+(formsubmit.co, gratuito, sem cadastro). O e-mail chega com o assunto "Nova proposta pelo site: Nome (Empresa)",
+todos os campos organizados em tabela, e o botão "Responder" já vai para o e-mail do cliente.
+- **Ativação (uma vez só):** depois que o site estiver no ar, envie uma proposta de teste. O FormSubmit manda
+  um e-mail "Action Required: Activate Form" para bystillstudio@gmail.com; clique em **Activate Form**.
+  Até essa ativação, o formulário mostra mensagem de erro e as propostas não são entregues.
+- Para trocar o e-mail, mude `FORM_EMAIL` perto do fim de `proposta/index.html` (e ative de novo).
+- Se os e-mails não aparecerem, confira a pasta de spam e marque como "Não é spam".
+
+## ANTES de divulgar
+1. Fazer a ativação do FormSubmit descrita acima.
 2. Pré-visualização em redes sociais: em `index.html` e `proposta/index.html`, troque
    `content="/og.png"` pela URL completa, ex.: `content="https://seudominio.com.br/og.png"`.
