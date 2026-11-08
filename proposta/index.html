@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Solicitar proposta | STILL STUDIO</title>
+<meta name="theme-color" content="#0C1014">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website"><meta property="og:locale" content="pt_BR"><meta property="og:site_name" content="STILL STUDIO">
+<meta property="og:title" content="Solicitar proposta | STILL STUDIO"><meta property="og:description" content="Conte sobre o seu projeto e solicite uma proposta da STILL STUDIO."><meta property="og:image" content="/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="description" content="Conte sobre o seu projeto e solicite uma proposta da STILL STUDIO.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<script>document.documentElement.className+=" js"</script>
+<link rel="stylesheet" href="../assets/site.css">
+<style>
+:root{--accent:#EE2945;--bg:#0B0D0E;--alt:#181A1C;--card:#16191B;--ink:#F2F2F0;--muted:rgba(242,242,240,.66);--line:rgba(242,242,240,.14);--err:#FF6B79;--arrow:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' fill='none' stroke='%23F2F2F0' stroke-width='2'%3E%3Cpath d='M1 1l6 6 6-6'/%3E%3C/svg%3E");--b2c:#7A1A28;color-scheme:dark;
+--d:"Bricolage Grotesque","Arial Black",system-ui,sans-serif;--b:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.6 var(--b);-webkit-font-smoothing:antialiased;min-height:100svh}
+a{color:inherit}p{margin:0}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.w{max-width:1120px;margin:0 auto;padding:0 clamp(1.25rem,4vw,2.5rem);position:relative;z-index:1}
+h1,h2{font-family:var(--d);font-weight:800;letter-spacing:-.025em;line-height:1.02;margin:0}
+.dot{color:var(--accent)}
+.bg{position:fixed;inset:0;overflow:hidden;pointer-events:none}
+.bl{position:absolute;border-radius:50%;filter:blur(90px)}
+.b1{width:46vw;height:46vw;background:var(--accent);opacity:.28;left:-12vw;top:-14vw;animation:fl1 16s ease-in-out infinite alternate}
+.b2{width:36vw;height:36vw;background:var(--b2c);opacity:.5;right:-8vw;bottom:-10vw;animation:fl2 20s ease-in-out infinite alternate}
+@keyframes fl1{to{transform:translate(12vw,10vw) scale(1.2)}}
+@keyframes fl2{to{transform:translate(-14vw,-8vw) scale(.85)}}
+.top{display:flex;justify-content:space-between;align-items:center;padding:1.3rem 0}
+.logo{display:block;color:var(--accent)}.logo svg{display:block;height:1.5rem;width:auto;fill:currentColor}
+.tr{display:flex;align-items:center;gap:.8rem}
+@media(max-width:560px){.back{display:none}}
+.back{font-size:.95rem;font-weight:500;color:var(--muted);text-decoration:none;transition:color .2s}.back:hover{color:var(--ink)}
+.grid{display:grid;gap:2.5rem;padding:clamp(1.5rem,4vw,3.5rem) 0 5rem}
+@media(min-width:960px){.grid{grid-template-columns:.8fr 1.2fr;gap:5rem;align-items:start}.intro{position:sticky;top:2rem}}
+h1{font-size:clamp(2.6rem,7vw,5rem)}
+.intro p{color:var(--muted);margin-top:1.2rem;max-width:36ch;font-size:1.1rem}
+.card{background:var(--card);border-radius:26px;padding:clamp(1.4rem,4vw,2.6rem);animation:rise .8s cubic-bezier(.2,.8,.2,1) both;box-shadow:0 30px 60px -30px rgba(0,0,0,.6)}
+@keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+/* progresso */
+.pn{list-style:none;margin:0 0 2.2rem;padding:0;display:grid;grid-template-columns:repeat(3,1fr);position:relative}
+.trk{position:absolute;top:1.05rem;left:16.666%;right:16.666%;height:3px;background:var(--line);border-radius:3px}
+.trk i{display:block;height:100%;width:0;background:var(--accent);border-radius:3px;transition:width .55s cubic-bezier(.2,.8,.2,1)}
+.pn li{text-align:center;position:relative;z-index:1;font-size:.85rem;font-weight:500;color:var(--muted);transition:color .3s}
+.pn b{display:grid;place-items:center;width:2.1rem;height:2.1rem;margin:0 auto .45rem;border-radius:50%;background:var(--alt);border:2px solid var(--line);font:600 .9rem var(--b);color:var(--ink);transition:background .3s,border-color .3s,transform .3s}
+.pn li.on{color:var(--ink)}.pn li.on b{border-color:var(--accent);transform:scale(1.1)}
+.pn li.done b{background:var(--accent);border-color:var(--accent);font-size:0}.pn li.done b::before{content:"\2713";font-size:1rem}
+.cnt{color:var(--muted);font-size:.9rem;margin-bottom:.4rem}
+/* etapas */
+.step h2{font-size:clamp(1.6rem,3.4vw,2.1rem);margin-bottom:.5rem;outline:none}
+.step>p{color:var(--muted);margin-bottom:1.6rem}
+.fg{display:grid;gap:1.1rem;grid-template-columns:1fr}
+@media(min-width:640px){.fg{grid-template-columns:1fr 1fr}.fg .full{grid-column:1/-1}}
+.fld{display:grid;gap:.4rem;align-content:start}
+.fld>label,.fld>.lb{font-weight:600;font-size:.95rem}
+@media(min-width:640px){.fld>label.tl{min-height:3em;display:flex;align-items:flex-end}}
+.fld small{font-weight:400;color:var(--muted)}
+input[type=text],input[type=email],input[type=tel],select,textarea{font:400 1rem var(--b);color:var(--ink);background:var(--alt);border:1.5px solid var(--line);border-radius:12px;padding:.9rem 1rem;width:100%;transition:border-color .2s,box-shadow .2s,transform .2s}
+select{appearance:none;background-image:var(--arrow);background-repeat:no-repeat;background-position:right 1rem center;padding-right:2.6rem}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 4px rgba(229,50,66,.25)}
+.bad{border-color:var(--accent)!important}
+textarea{min-height:9rem;resize:vertical}
+.err{color:var(--err);font-size:.88rem;font-weight:500;min-height:1.1em}
+.ct{justify-self:end;color:var(--muted);font-size:.82rem}
+.chips{display:grid;gap:.6rem;grid-template-columns:1fr}
+@media(min-width:520px){.chips{grid-template-columns:1fr 1fr}}
+.chip{position:relative;display:flex}
+.chip input{position:absolute;opacity:0;inset:0;cursor:pointer}
+.chip span{flex:1;display:flex;align-items:center;gap:.6rem;padding:.85rem 1rem;border:1.5px solid var(--line);border-radius:12px;background:var(--alt);font-weight:500;transition:border-color .2s,background .2s,transform .2s}
+.chip span::before{content:"";width:1.1rem;height:1.1rem;border-radius:50%;border:2px solid var(--line);flex:none;transition:all .2s}
+.chip:hover span{transform:translateY(-2px)}
+.chip input:checked+span{border-color:var(--accent);background:rgba(229,50,66,.14)}
+.chip input:checked+span::before{background:var(--accent);border-color:var(--accent);box-shadow:inset 0 0 0 3px var(--alt)}
+.chip input:focus-visible+span{outline:3px solid var(--accent);outline-offset:2px}
+.hp{position:absolute;left:-9999px;opacity:0}
+.nv{display:flex;justify-content:space-between;gap:1rem;margin-top:2rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;background:var(--accent);color:#fff;font:600 1rem var(--b);padding:.95rem 1.8rem;border-radius:999px;text-decoration:none;border:0;cursor:pointer;transition:transform .2s,box-shadow .2s,opacity .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 26px -12px var(--accent)}
+.btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line)}.btn.ghost:hover{box-shadow:inset 0 0 0 1.5px var(--ink)}
+.btn[disabled]{opacity:.55;cursor:wait;transform:none}
+.nv .ghost[hidden-step]{visibility:hidden}
+.fe{color:var(--err);font-weight:500;margin-top:1rem;min-height:1.3em}
+/* confirmação */
+.done{text-align:center;padding:2rem 0;outline:none}
+.done h2{font-size:clamp(1.9rem,4.5vw,3rem);margin:1.4rem 0 .9rem}
+.done p{color:var(--muted);max-width:42ch;margin:0 auto 2rem}
+.ck{width:5.5rem;height:5.5rem}
+.c1{stroke-dasharray:151;stroke-dashoffset:151;animation:dr .8s .1s ease forwards}
+.c2{stroke-dasharray:44;stroke-dashoffset:44;animation:dr .5s .8s ease forwards}
+@keyframes dr{to{stroke-dashoffset:0}}
+.done>*{animation:rise .7s both}.done>*:nth-child(2){animation-delay:.2s}.done>*:nth-child(3){animation-delay:.35s}.done>*:nth-child(4){animation-delay:.5s}
+.wd{display:inline-block;overflow:hidden;vertical-align:top;padding:0 .04em .12em}
+.wd>span{display:inline-block;animation:up .9s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(.1s + var(--i)*.09s)}
+@keyframes up{from{transform:translateY(105%);opacity:0}to{transform:none;opacity:1}}
+.intro p{animation:rise .8s .5s both}
+.bg{inset:-30px;transition:transform .8s ease-out;transform:translate(calc(var(--mx,0)*26px),calc(var(--my,0)*26px))}
+.chip input:checked+span{animation:cp .35s}
+@keyframes cp{40%{transform:scale(.96)}100%{transform:none}}
+.pn li.on b{animation:ring 1.8s ease-out infinite}
+@keyframes ring{0%{box-shadow:0 0 0 0 rgba(229,50,66,.55)}100%{box-shadow:0 0 0 10px rgba(229,50,66,0)}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.c1,.c2{stroke-dashoffset:0}}
+</style>
+</head>
+<body>
+<div class="bg" aria-hidden="true"><span class="bl b1"></span><span class="bl b2"></span></div>
+<div class="w">
+  <header class="top"><a class="logo" href="../index.html" aria-label="STILL STUDIO, voltar para a página inicial"><svg viewBox="461.68 371.28 996.64 337.44" aria-hidden="true"><path d="M 1126.058594 371.679688 L 1126.058594 512.910156 C 1113.21875 432.660156 1043.875 371.277344 960.011719 371.277344 C 876.097656 371.277344 806.726562 432.730469 793.945312 513.046875 L 793.945312 371.890625 L 461.683594 371.890625 L 461.683594 708.679688 L 793.945312 708.679688 L 793.945312 566.953125 C 806.726562 647.269531 876.097656 708.71875 960.011719 708.71875 C 1046.203125 708.71875 1117.152344 643.917969 1127.078125 560.398438 C 1136.085938 643.648438 1206.542969 708.46875 1292.1875 708.46875 C 1383.9375 708.46875 1458.316406 634.089844 1458.316406 542.339844 L 1458.316406 371.679688 Z"/></svg></a><div class="tr"><div data-ctl></div><a class="back" href="../index.html">Voltar ao site</a></div></header>
+  <main class="grid">
+    <div class="intro">
+      <h1 aria-label="Solicite uma proposta." data-ih="@h1prop"><span class="wd" style="--i:0"><span>Solicite</span></span> <span class="wd" style="--i:1"><span>uma</span></span> <span class="wd" style="--i:2"><span>proposta<span class=dot>.</span></span></span></h1>
+      <p>Conte sobre o seu projeto em três etapas rápidas. Com base nas suas respostas, nossa equipe entra em contato com os próximos passos.</p>
+    </div>
+    <section class="card" aria-label="Formulário de proposta">
+      <div id="prog">
+        <ol class="pn" aria-label="Progresso"><div class="trk" aria-hidden="true"><i id="fill"></i></div>
+          <li class="on" aria-current="step"><b>1</b>Contato</li><li><b>2</b>Negócio</li><li><b>3</b>Projeto</li>
+        </ol>
+        <p class="cnt" id="cnt" aria-live="polite">Etapa 1 de 3</p>
+      </div>
+      <form id="f" novalidate>
+        <div class="step" data-step="0">
+          <h2 tabindex="-1">Dados de contato</h2><p>Como podemos falar com você?</p>
+          <div class="fg">
+            <div class="fld"><label for="nome">Nome completo</label><input type="text" id="nome" name="nome" autocomplete="name"><span class="err" id="e-nome"></span></div>
+            <div class="fld"><label for="email">E-mail</label><input type="email" id="email" name="email" autocomplete="email" inputmode="email"><span class="err" id="e-email"></span></div>
+            <div class="fld"><label for="whats">WhatsApp</label><input type="tel" id="whats" name="whats" autocomplete="tel" inputmode="tel" placeholder="(11) 99999-9999"><span class="err" id="e-whats"></span></div>
+            <div class="fld"><label for="insta">Instagram <small>(opcional)</small></label><input type="text" id="insta" name="insta" placeholder="@seuperfil" autocapitalize="none"><span class="err"></span></div>
+          </div>
+        </div>
+        <div class="step" data-step="1" hidden>
+          <h2 tabindex="-1">Sobre o seu negócio</h2><p>Um pouco de contexto sobre quem somos juntos.</p>
+          <div class="fg">
+            <div class="fld"><label for="empresa">Nome da empresa ou do projeto</label><input type="text" id="empresa" name="empresa" autocomplete="organization"><span class="err" id="e-empresa"></span></div>
+            <div class="fld"><label for="porte">Tamanho da equipe</label><select id="porte" name="porte"><option value="">Selecione uma opção</option><option>Profissional liberal</option><option>Micro (2 a 10 pessoas)</option><option>Pequena (11 a 50 pessoas)</option><option>Média (51 a 100 pessoas)</option><option>Grande (mais de 100 pessoas)</option><option>Projeto cultural ou independente</option></select><span class="err" id="e-porte"></span></div>
+            <div class="fld full"><label for="oferta">Quais produtos ou serviços vocês oferecem?</label><input type="text" id="oferta" name="oferta"><span class="err" id="e-oferta"></span></div>
+          </div>
+        </div>
+        <div class="step" data-step="2" hidden>
+          <h2 tabindex="-1">Detalhes do projeto</h2><p>O que você precisa e quais são os desafios?</p>
+          <div class="fg">
+            <div class="fld full"><span class="lb" id="lsv">Quais serviços você precisa? <small>(escolha um ou mais)</small></span>
+              <div class="chips" role="group" aria-labelledby="lsv">
+                <label class="chip"><input type="checkbox" name="servico" value="Branding e identidade visual"><span>Branding e identidade visual</span></label>
+                <label class="chip"><input type="checkbox" name="servico" value="Social media"><span>Social media</span></label>
+                <label class="chip"><input type="checkbox" name="servico" value="Motion design"><span>Motion design</span></label>
+                <label class="chip"><input type="checkbox" name="servico" value="Outro / ainda não sei"><span>Outro / ainda não sei</span></label>
+              </div><span class="err" id="e-servico"></span></div>
+            <div class="fld"><label class="tl" for="prazo">Prazo desejado</label><select id="prazo" name="prazo"><option value="">Selecione uma opção</option><option>Sem pressa</option><option>Em até 1 mês</option><option>De 1 a 3 meses</option><option>É urgente</option></select><span class="err" id="e-prazo"></span></div>
+            <div class="fld"><label class="tl" for="origem">Como você conheceu a STILL STUDIO?</label><select id="origem" name="origem"><option value="">Selecione uma opção</option><option>Instagram</option><option>Google</option><option>Indicação</option><option>LinkedIn</option><option>Behance</option><option>Outro</option></select><span class="err" id="e-origem"></span></div>
+            <div class="fld full"><label for="desafio">Descreva o projeto e os principais desafios</label><textarea id="desafio" name="desafio" maxlength="2000"></textarea><div style="display:flex;justify-content:space-between;gap:1rem"><span class="err" id="e-desafio"></span><span class="ct" id="ct">0/2000</span></div></div>
+          </div>
+        </div>
+        <input class="hp" name="_hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="nv"><button type="button" class="btn ghost" id="prev">Voltar</button><button type="submit" class="btn" id="next">Continuar</button></div>
+        <p class="fe" id="fe" role="alert"></p>
+        <noscript><p class="fe">Ative o JavaScript para enviar a solicitação.</p></noscript>
+      </form>
+      <div class="done" id="done" hidden tabindex="-1" role="status">
+        <svg class="ck" viewBox="0 0 52 52" aria-hidden="true"><circle class="c1" cx="26" cy="26" r="24" fill="none" stroke="#E53242" stroke-width="3"/><path class="c2" d="M15 27l8 8 15-17" fill="none" stroke="#FEFEFE" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h2>Obrigado por entrar em contato.</h2>
+        <p>Recebemos as informações do seu projeto. A equipe da STILL STUDIO entrará em contato em breve.</p>
+        <a class="btn" href="../index.html">Voltar para a página inicial</a>
+      </div>
+    </section>
+  </main>
+</div>
+<script src="../assets/site.js"></script>
+<script>
+// URL do serviço que recebe as propostas (POST em JSON). Sem ela, o envio falha e nenhuma tela de sucesso é exibida.
+var FORM_ENDPOINT="";
+(function(){
+ var T=(window.STILL&&window.STILL.T)||function(x){return x};
+ var reduce=matchMedia("(prefers-reduced-motion:reduce)").matches;
+ var f=document.getElementById("f"),steps=[].slice.call(f.querySelectorAll(".step")),cur=0,busy=false,sending=false;
+ var lis=[].slice.call(document.querySelectorAll(".pn li")),fill=document.getElementById("fill"),cnt=document.getElementById("cnt");
+ var prev=document.getElementById("prev"),next=document.getElementById("next"),fe=document.getElementById("fe");
+ var req=function(m){return function(v){return !!v||m}};
+ var V={
+  nome:function(v){return v.length>=3||T("Informe seu nome completo.")},
+  email:function(v){return /^\S+@\S+\.\S+$/.test(v)||T("Informe um e-mail válido.")},
+  whats:function(v){var d=v.replace(/\D/g,"");if(d.indexOf("55")===0&&d.length>11)d=d.slice(2);return d.length===10||d.length===11||T("Informe um WhatsApp válido com DDD.")},
+  empresa:req(T("Informe o nome da empresa ou do projeto.")),porte:req(T("Selecione o tamanho da equipe.")),oferta:req(T("Conte quais produtos ou serviços vocês oferecem.")),
+  prazo:req(T("Selecione o prazo desejado.")),origem:req(T("Conte como nos conheceu.")),
+  desafio:function(v){return v.length>=20||T("Descreva o projeto com pelo menos 20 caracteres.")}
+ };
+ var BY=[["nome","email","whats"],["empresa","porte","oferta"],["servico","prazo","origem","desafio"]];
+ /* serviço vindo da home (?servico=branding|social|motion|outro) já marcado */
+ try{var SV={branding:"Branding e identidade visual",social:"Social media",motion:"Motion design",outro:"Outro / ainda não sei"},qs=new URLSearchParams(location.search).get("servico");
+  if(qs&&SV[qs]){var cb=f.querySelector('[name=servico][value="'+SV[qs]+'"]');if(cb)cb.checked=true}}catch(e){}
+ function setErr(n,m){var e=document.getElementById("e-"+n),el=f.elements[n];if(e)e.textContent=m||"";var els=n==="servico"?[]:[el];els.forEach(function(x){if(!x)return;x.classList.toggle("bad",!!m);x.setAttribute("aria-invalid",m?"true":"false");if(m)x.setAttribute("aria-describedby","e-"+n)})}
+ function check(n){var m;
+  if(n==="servico"){m=f.querySelectorAll('[name=servico]:checked').length?"":T("Escolha pelo menos um serviço.")}
+  else{var r=V[n](f.elements[n].value.trim());m=r===true?"":r}
+  setErr(n,m);return !m}
+ function validate(i){var first=null;BY[i].forEach(function(n){if(!check(n)&&!first)first=n});
+  if(first){var t=first==="servico"?f.querySelector('[name=servico]'):f.elements[first];t.focus();
+   if(!reduce)(first==="servico"?t.closest(".fld"):t).animate([{transform:"translateX(0)"},{transform:"translateX(-6px)"},{transform:"translateX(6px)"},{transform:"translateX(0)"}],{duration:280})}
+  return !first}
+ function update(){
+  lis.forEach(function(li,i){li.classList.toggle("done",i<cur);li.classList.toggle("on",i===cur);i===cur?li.setAttribute("aria-current","step"):li.removeAttribute("aria-current")});
+  fill.style.width=(cur*50)+"%";cnt.textContent=T("Etapa")+" "+(cur+1)+" "+T("de")+" 3";
+  prev.style.visibility=cur===0?"hidden":"visible";prev.tabIndex=cur===0?-1:0;
+  next.textContent=cur===2?T("Enviar solicitação"):T("Continuar")}
+ function stag(el,base){if(reduce)return;[].forEach.call(el.querySelectorAll(".fld"),function(x,i){x.animate([{opacity:0,transform:"translateY(16px)"},{opacity:1,transform:"none"}],{duration:480,delay:base+60+i*70,fill:"backwards",easing:"cubic-bezier(.2,.8,.2,1)"})})}
+ stag(steps[0],450);
+ if(!reduce&&matchMedia("(pointer:fine)").matches)addEventListener("pointermove",function(e){var s=document.documentElement.style;s.setProperty("--mx",(e.clientX/innerWidth-.5).toFixed(3));s.setProperty("--my",(e.clientY/innerHeight-.5).toFixed(3))},{passive:true});
+ function go(n){
+  if(busy||n===cur)return;var dir=n>cur?1:-1,from=steps[cur],to=steps[n];busy=true;cur=n;update();fe.textContent="";
+  function show(){from.hidden=true;to.hidden=false;stag(to,0);var h=to.querySelector("h2");
+   if(reduce){busy=false;h.focus({preventScroll:true});return}
+   to.animate([{opacity:0,transform:"translateX("+dir*36+"px)"},{opacity:1,transform:"none"}],{duration:380,easing:"cubic-bezier(.2,.8,.2,1)"}).onfinish=function(){busy=false;h.focus({preventScroll:true})}}
+  if(reduce){show();return}
+  from.animate([{opacity:1,transform:"none"},{opacity:0,transform:"translateX("+(-dir*36)+"px)"}],{duration:200,easing:"ease-in"}).onfinish=show}
+ prev.addEventListener("click",function(){go(cur-1)});
+ f.addEventListener("input",function(e){var n=e.target.name;
+  if(n==="whats"){var v=e.target.value;if(v.trim().charAt(0)!=="+"){var d=v.replace(/\D/g,"").slice(0,11),s=d;
+    if(d.length>2)s="("+d.slice(0,2)+") "+d.slice(2);var k=d.length>10?7:6;if(d.length>k)s="("+d.slice(0,2)+") "+d.slice(2,k)+"-"+d.slice(k);e.target.value=s}}
+  if(n==="desafio")document.getElementById("ct").textContent=e.target.value.length+"/2000";
+  if(n&&e.target.classList.contains("bad"))setErr(n,"")});
+ f.addEventListener("change",function(e){if(e.target.name==="servico")setErr("servico","");else if(e.target.classList.contains("bad"))setErr(e.target.name,"")});
+ async function send(data){
+  if(FORM_ENDPOINT){
+   var ac=new AbortController(),t=setTimeout(function(){ac.abort()},20000);
+   try{var r=await fetch(FORM_ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(data),signal:ac.signal});
+    if(!r.ok)throw new Error("HTTP "+r.status);
+    try{var j=await r.clone().json();if(j&&j.success===false)throw new Error(j.error||"Envio recusado pelo servidor")}catch(x){if(x.message&&x.message!==""&&!(x instanceof SyntaxError))throw x}
+   }finally{clearTimeout(t)}
+   return}
+  if(window.claude&&claude.use){var db=await claude.use("db");if(db){await db.collection("propostas").add(data);return}}
+  throw new Error("Nenhum destino de envio configurado (FORM_ENDPOINT vazio).")}
+ f.addEventListener("submit",async function(e){
+  e.preventDefault();if(f._hp.value||busy||sending)return;
+  if(!validate(cur))return;
+  if(cur<2){go(cur+1);return}
+  for(var i=0;i<2;i++){var bad=BY[i].some(function(n){return !check(n)});if(bad){go(i);return}}
+  var data={projeto:"STILL STUDIO",enviadoEm:new Date().toISOString()};
+  ["nome","email","whats","insta","empresa","porte","oferta","prazo","origem","desafio"].forEach(function(k){data[k]=f.elements[k].value.trim()});
+  data.servico=[].map.call(f.querySelectorAll('[name=servico]:checked'),function(c){return c.value}).join(", ");
+  sending=true;next.disabled=true;prev.disabled=true;next.textContent=T("Enviando...");fe.textContent="";
+  try{await send(data);
+   document.getElementById("prog").hidden=true;f.hidden=true;var d=document.getElementById("done");d.hidden=false;d.focus({preventScroll:true});scrollTo({top:0,behavior:reduce?"auto":"smooth"})}
+  catch(err){console.error("Falha no envio:",err);fe.textContent=T("Não foi possível enviar sua solicitação agora. Verifique sua conexão e tente novamente.")}
+  sending=false;next.disabled=false;prev.disabled=false;update()});
+ update();
+})();
+</script>
+</body>
+</html>

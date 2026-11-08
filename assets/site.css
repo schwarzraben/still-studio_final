@@ -1,0 +1,14 @@
+/* STILL STUDIO — botão e menu de idioma, compartilhados pelas páginas */
+:root{--ctl-bg:#FFFFFF;--ctl-ink:#050707;--ctl-muted:rgba(5,7,7,.62);--ctl-line:rgba(5,7,7,.14);--ctl-accent:#EE2945}
+.ctl{display:flex;align-items:center;gap:.3rem;color:inherit}
+.ctl-b{display:inline-grid;place-items:center;min-width:2.4rem;height:2.4rem;padding:0 .55rem;border-radius:999px;border:1.5px solid color-mix(in srgb,currentColor 28%,transparent);background:transparent;color:inherit;font:600 .8rem/1 "Instrument Sans",system-ui,sans-serif;letter-spacing:.06em;cursor:pointer;transition:border-color .2s,background .2s}
+.ctl-b:hover{border-color:currentColor}
+.ctl-b[aria-expanded="true"]{background:color-mix(in srgb,currentColor 14%,transparent)}
+.pop{position:fixed;z-index:120;min-width:15rem;max-width:calc(100vw - 24px);background:var(--ctl-bg);color:var(--ctl-ink);border:1px solid var(--ctl-line);border-radius:18px;padding:.6rem;box-shadow:0 24px 50px -20px rgba(0,0,0,.45);font:400 .95rem/1.4 "Instrument Sans",system-ui,sans-serif;text-align:left}
+.pop[hidden]{display:none!important}
+.pop h2{font:600 .78rem/1 "Instrument Sans",system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--ctl-muted);margin:.5rem .6rem .7rem}
+.pop .it{display:flex;width:100%;align-items:center;justify-content:space-between;gap:1rem;padding:.7rem .7rem;border:0;border-radius:12px;background:transparent;color:inherit;font:inherit;text-align:left;cursor:pointer}
+.pop .it:hover{background:color-mix(in srgb,var(--ctl-ink) 7%,transparent)}
+.pop .it[aria-current="true"]{font-weight:600}
+.pop .it[aria-current="true"]::after{content:"";width:.55rem;height:.55rem;border-radius:50%;background:var(--ctl-accent)}
+.pop :focus-visible{outline:3px solid var(--ctl-accent);outline-offset:2px}

@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>STILL STUDIO | Estúdio criativo independente</title>
+<meta name="theme-color" content="#111315">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta name="robots" content="noindex">
+<meta name="description" content="Branding e identidade visual, social media e motion design. A STILL STUDIO conecta estratégia, criatividade e design.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<script>document.documentElement.className+=" js"</script>
+<style>
+/* Layout (versão B): página de conversão — faixas escuras granuladas e faixas claras alternadas,
+   títulos pesados em caixa alta com palavras grifadas em vermelho, selos inclinados e barra fixa de proposta. */
+:root{
+ --dk:#111315;--dk-2:#1B1D20;--dk-3:#232629;--lt:#ECECE8;--lt-2:#F7F7F4;
+ --on:#FEFEFE;--on-m:rgba(254,254,254,.66);--on-l:rgba(254,254,254,.12);
+ --ink:#0C1014;--ink-m:rgba(12,16,20,.62);--ink-l:rgba(12,16,20,.12);
+ --accent:#E53242;--accent-2:#FF6A3D;--paper:#EEECE8;
+ --d:"Bricolage Grotesque","Arial Black",system-ui,sans-serif;--b:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;--s:"Instrument Serif",Georgia,serif;
+ --ease:cubic-bezier(.2,.8,.2,1);--spring:cubic-bezier(.34,1.56,.64,1);
+ /* tokens usados pelo projeto aberto (tema claro) */
+ --bg:var(--lt);--muted:var(--ink-m);--line:var(--ink-l);
+ color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:border-box}
+html{overflow-x:clip;scroll-behavior:smooth;scroll-padding-top:5rem}
+body{margin:0;background:var(--dk);color:var(--on);font:400 1.05rem/1.6 var(--b);-webkit-font-smoothing:antialiased;overflow-x:clip;padding-bottom:5.5rem}
+a{color:inherit}p{margin:0}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.w{max-width:1240px;margin:0 auto;padding-left:max(clamp(1.25rem,4vw,3rem),env(safe-area-inset-left,0px));padding-right:max(clamp(1.25rem,4vw,3rem),env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--d);font-weight:800;text-transform:uppercase;letter-spacing:-.03em;line-height:.92;margin:0;text-wrap:balance}
+h2{font-size:clamp(2.4rem,6.6vw,5.4rem)}
+section{position:relative;padding-block:clamp(4.5rem,10vw,8rem)}
+.dk{background:var(--dk);color:var(--on)}
+.lt{background:var(--lt);color:var(--ink)}
+/* grão das faixas escuras */
+.grain::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.07;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.grain>*{position:relative}
+.ey{display:inline-flex;align-items:center;gap:.6rem;font-size:.78rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;margin-bottom:1.2rem}
+.ey::before{content:"";width:.42rem;height:.42rem;border-radius:50%;background:var(--accent)}
+.hd{text-align:center;display:grid;justify-items:center;margin-bottom:clamp(2.5rem,5vw,4rem)}
+.hd p{max-width:52ch;margin-top:1.2rem;opacity:.75}
+.hl{color:var(--accent)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.mark{background:var(--accent);color:var(--on);padding:0 .08em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+/* botão pílula com círculo de seta */
+.pill{display:inline-flex;align-items:center;gap:1rem;padding:.45rem .45rem .45rem 1.6rem;border-radius:999px;font:500 1rem var(--b);text-decoration:none;border:0;cursor:pointer;background:var(--lt-2);color:var(--ink);white-space:nowrap;transition:transform .35s var(--spring),box-shadow .3s}
+.pill i{display:grid;place-items:center;width:2.6rem;height:2.6rem;border-radius:50%;background:var(--ink);color:var(--on);font-style:normal;transition:transform .45s var(--spring)}
+.pill:hover{transform:translateY(-3px)}.pill:hover i{transform:rotate(-45deg)}
+.pill.dark{background:var(--ink);color:var(--on)}.pill.dark i{background:var(--on);color:var(--ink)}
+.pill.red{background:var(--accent);color:var(--on);border:2px solid var(--ink);box-shadow:0 6px 0 var(--ink)}.pill.red i{background:var(--ink);color:var(--on)}
+.pill.red:hover{box-shadow:0 9px 0 var(--ink)}
+/* selo inclinado */
+.stk{display:inline-block;font:800 1rem/1 var(--d);text-transform:uppercase;letter-spacing:-.01em;background:var(--accent);color:var(--on);padding:.45rem .7rem;border-radius:8px;border:2px solid var(--ink);box-shadow:0 5px 0 var(--ink);transform:rotate(var(--rot,6deg));animation:wob 3.2s ease-in-out infinite}
+@keyframes wob{50%{transform:rotate(calc(var(--rot,6deg) - 4deg)) translateY(-3px)}}
+
+/* ===== menu ===== */
+.top{position:fixed;top:0;left:0;right:0;z-index:40;padding-top:env(safe-area-inset-top,0px);transition:background .35s,box-shadow .35s}
+.top.sc{background:rgba(17,19,21,.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--on-l)}
+.top .w{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:4.6rem}
+.logo{font:800 1.5rem var(--d);letter-spacing:-.03em;text-decoration:none;opacity:0;transform:translateY(-8px);transition:opacity .35s,transform .35s}
+.logo i{font-style:normal;color:var(--accent)}
+.top.sc .logo{opacity:1;transform:none}
+.top nav{display:flex;align-items:center;gap:clamp(.8rem,2.4vw,2rem);font-size:.98rem}
+.top nav a{text-decoration:none;color:var(--on-m);transition:color .2s}.top nav a.pill{color:var(--ink)}.top nav a:hover{color:var(--on)}
+.top .pill{padding:.35rem .35rem .35rem 1.2rem;font-size:.92rem}.top .pill i{width:2.1rem;height:2.1rem}
+@media(max-width:820px){.top nav a:not(.pill){display:none}}
+
+/* ===== abertura ===== */
+.hero{padding-block:clamp(7rem,13vw,9.5rem) 0;overflow:hidden;text-align:center}
+.hero .bgtxt{position:absolute;inset:-20% -10%;display:grid;align-content:center;gap:2.2rem;transform:rotate(-24deg);pointer-events:none;opacity:.05;font:800 4.4rem/1 var(--d);text-transform:uppercase;white-space:nowrap;-webkit-text-stroke:1px var(--on);color:transparent}
+.hero .bgtxt span{display:block;animation:slide 40s linear infinite}.hero .bgtxt span:nth-child(even){animation-direction:reverse}
+@keyframes slide{to{transform:translateX(-30%)}}
+.brand{display:inline-grid;justify-items:center;margin-bottom:1.6rem}
+.brand b{font:800 clamp(2.6rem,6vw,3.6rem)/.9 var(--d);letter-spacing:-.04em}.brand b i{font-style:normal;color:var(--accent)}
+.brand .stk{--rot:-5deg;font-size:.7rem;padding:.3rem .5rem;margin-bottom:-.3rem;position:relative;z-index:1}
+.hero h1{font-size:clamp(2.7rem,8.4vw,7.6rem);max-width:13ch;margin-inline:auto}
+.hero h1 .hl{font-style:italic;display:inline-block;transform:skewX(-6deg)}
+.hero .sub{max-width:52ch;margin:1.8rem auto 0;color:var(--on-m);font-size:clamp(1.02rem,1.6vw,1.18rem)}
+.offer{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:1.6rem clamp(2rem,5vw,3.5rem);margin-top:clamp(2.2rem,5vw,3.4rem)}
+.offer .big-n{position:relative;text-align:left}
+.offer small{display:block;color:var(--on-m);font-size:.88rem;margin-bottom:.15rem}
+.offer strong{font:800 clamp(3rem,7vw,5rem)/.9 var(--d);letter-spacing:-.04em;text-transform:uppercase}
+.offer strong em{font-style:normal;font-size:.36em;margin-right:.15em;vertical-align:.12em}
+.offer .stk{position:absolute;right:-1.4rem;top:-1.6rem;--rot:7deg;font-size:.95rem}
+.glow{position:relative;margin-top:clamp(3rem,7vw,5rem);padding-block:2.4rem 2.2rem;overflow:hidden}
+.glow::before{content:"";position:absolute;left:50%;bottom:-60%;width:110%;height:160%;transform:translateX(-50%);background:radial-gradient(closest-side,rgba(255,106,61,.75),rgba(229,50,66,.45) 45%,rgba(60,20,90,.35) 70%,transparent);filter:blur(30px);pointer-events:none}
+.mq{overflow:hidden;position:relative}
+.mq-t{display:flex;width:max-content;gap:2.2rem;align-items:center;will-change:transform;font:800 clamp(1.6rem,3.4vw,2.6rem)/1 var(--d);text-transform:uppercase;letter-spacing:-.02em}
+.mq-t span{display:inline-flex;align-items:center;gap:2.2rem;color:rgba(254,254,254,.8)}
+.mq-t span:nth-child(even){color:transparent;-webkit-text-stroke:1.5px rgba(254,254,254,.8)}
+.mq-t span::after{content:"";width:.4rem;height:.4rem;background:var(--accent);transform:rotate(45deg)}
+
+/* ===== clientes ===== */
+.cl{padding-block:clamp(2rem,4vw,3rem);border-top:1px solid var(--on-l)}
+.cl .w{display:grid;gap:1rem;align-items:center}
+@media(min-width:900px){.cl .w{grid-template-columns:auto 1fr;gap:2.5rem}}
+.cl p{font-size:.78rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--on-m)}
+.lgs{overflow:hidden;min-width:0;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.lgs-t{display:flex;width:max-content;gap:clamp(1.5rem,4vw,3rem);will-change:transform}
+.lg{flex:none;display:grid;place-items:center;width:clamp(7.5rem,13vw,10rem);height:3.2rem}
+.lg img{max-width:100%;max-height:100%;object-fit:contain;filter:grayscale(1) brightness(2);opacity:.7}
+.lg.ph{border:1.5px dashed var(--on-l);border-radius:12px;color:var(--on-m);font:600 .78rem var(--b);letter-spacing:.1em;text-transform:uppercase}
+
+/* ===== como funciona ===== */
+.steps{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,15.5rem),1fr));list-style:none;margin:0;padding:0}
+.steps li{background:var(--dk-2);border:1px solid var(--on-l);border-radius:22px;padding:clamp(1.5rem,3vw,2.2rem);display:grid;gap:1rem;align-content:start;transition:transform .5s var(--spring),border-color .3s}
+.steps li:hover{transform:translateY(-6px);border-color:rgba(229,50,66,.5)}
+.steps .n{font:800 clamp(3rem,5vw,4rem)/1 var(--d);color:transparent;-webkit-text-stroke:2px var(--accent);letter-spacing:-.02em}
+.steps h3{font-size:1.4rem;line-height:1}
+.steps p{color:var(--on-m);font-size:.98rem}
+.more{text-align:center;margin-top:2.4rem;color:var(--on-m)}.more b{color:var(--on);font-weight:600}
+
+/* ===== faixa em serifa ===== */
+.sf{padding-block:clamp(2.5rem,5vw,4rem);overflow:hidden}
+.sf .mq-t{font:400 clamp(2.6rem,6vw,4.6rem)/1 var(--s);text-transform:none;letter-spacing:-.02em;gap:4rem}
+.sf .mq-t span{color:rgba(12,16,20,.2);-webkit-text-stroke:0;gap:0}
+.sf .mq-t span::after{display:none}
+.sf .mq-t em{font-style:italic;color:rgba(229,50,66,.55)}
+
+/* ===== frentes (como planos) ===== */
+.inc{background:var(--lt-2);border-radius:28px;padding:clamp(1.5rem,4vw,3rem);margin-bottom:1.2rem;display:grid;gap:1.5rem}
+@media(min-width:900px){.inc{grid-template-columns:.8fr 1.2fr;gap:3rem;align-items:start}}
+.inc h3{font-size:1.25rem;line-height:1.05}
+.inc p{color:var(--ink-m);margin-top:.8rem;font-size:.95rem;max-width:34ch}
+.chk{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));column-gap:2rem}
+.chk li{display:flex;gap:.8rem;padding-block:.85rem;border-bottom:1px solid var(--ink-l)}
+.chk li::before{content:"";flex:none;width:.85rem;height:.45rem;margin-top:.45rem;border-left:2.5px solid var(--accent);border-bottom:2.5px solid var(--accent);transform:rotate(-45deg)}
+.plans{display:grid;gap:1.2rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,19rem),1fr));align-items:stretch}
+.plan{position:relative;border-radius:28px;padding:clamp(1.5rem,3vw,2.2rem);display:flex;flex-direction:column;gap:1.2rem;background:var(--lt-2);color:var(--ink);box-shadow:0 20px 40px -30px rgba(12,16,20,.4);transition:transform .5s var(--spring)}
+.plan:hover{transform:translateY(-6px)}
+.plan.ft{background:var(--dk-2);color:var(--on);overflow:hidden}
+.plan.ft::after{content:"";position:absolute;left:10%;right:10%;bottom:-45%;height:70%;background:radial-gradient(closest-side,rgba(255,106,61,.55),transparent);filter:blur(20px);pointer-events:none}
+.plan>*{position:relative;z-index:1}
+.plan .nm{font:800 1.05rem var(--d);text-transform:uppercase;letter-spacing:.02em}
+.plan .ttl{font:800 clamp(1.9rem,3vw,2.5rem)/.95 var(--d);text-transform:uppercase;letter-spacing:-.03em}
+.plan .lead{opacity:.72;font-size:.95rem}
+.plan dl{margin:0;display:grid}
+.plan dl div{display:grid;grid-template-columns:7rem 1fr;gap:1rem;padding-block:1rem;border-top:1px solid var(--ink-l);font-size:.93rem}
+.plan.ft dl div{border-color:var(--on-l)}
+.plan dt{font-size:.68rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;opacity:.6;padding-top:.2rem}
+.plan dd{margin:0}
+.plan .hi{background:var(--accent);color:var(--on);padding:0 .2em}
+.plan .pill{margin-top:auto;align-self:flex-start}
+.plan .stk{position:absolute;right:1.2rem;top:1.2rem;--rot:8deg;font-size:.78rem}
+.foot-n{text-align:center;color:var(--ink-m);font-size:.92rem;max-width:62ch;margin:2rem auto 0}
+
+/* ===== portfólio (carrossel) ===== */
+.lib-h{display:flex;align-items:center;gap:1.2rem;margin-bottom:1.6rem}
+.lib-h h3{font-size:clamp(1.4rem,2.4vw,1.8rem);display:flex;align-items:center;gap:.8rem;white-space:nowrap}
+.lib-h h3::before{content:"";width:3px;height:1.1em;background:var(--accent)}
+.lib-h hr{flex:1;border:0;border-top:1px solid var(--on-l);margin:0}
+.nav-b{display:flex;gap:.5rem}
+.nav-b button{width:2.8rem;height:2.8rem;border-radius:50%;border:1px solid var(--on-l);background:transparent;color:var(--on);cursor:pointer;font-size:1.1rem;transition:border-color .2s,opacity .2s}
+.nav-b button:hover{border-color:var(--on)}.nav-b button:disabled{opacity:.3;cursor:default}
+.car{display:flex;gap:1.1rem;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:.5rem;margin-right:calc(-1 * max(clamp(1.25rem,4vw,3rem),env(safe-area-inset-right,0px)))}
+.car::-webkit-scrollbar{display:none}
+.pc{flex:none;width:min(84vw,24rem);scroll-snap-align:start;margin:0;background:var(--dk-2);border:1px solid var(--on-l);border-radius:22px;padding:.75rem .75rem 1.4rem;display:grid;gap:.9rem;align-content:start}
+.front{position:relative;display:block;width:100%;aspect-ratio:2/1.1;border-radius:14px;overflow:hidden;border:0;padding:0;cursor:pointer;color:var(--ink);background:radial-gradient(circle,rgba(12,16,20,.13) 1px,transparent 1.2px) 0 0/18px 18px,var(--paper)}
+.pc.d .front{color:var(--on);background:radial-gradient(circle,rgba(254,254,254,.1) 1px,transparent 1.2px) 0 0/18px 18px,#0A0B0C}
+.front svg{position:absolute;inset:0;width:100%;height:100%;transition:transform .7s var(--spring)}
+.front:hover svg{transform:scale(1.06)}
+.front .chip{position:absolute;left:.7rem;top:.7rem;display:inline-flex;align-items:center;gap:.35rem;background:var(--accent);color:var(--on);font:600 .78rem var(--b);padding:.3rem .7rem;border-radius:999px;border:1.5px solid var(--ink)}
+.pc .tt{padding-inline:.4rem;display:grid;gap:.5rem}
+.pc .tt b{font:500 1.15rem var(--b);display:flex;gap:.5rem;align-items:center}.pc .tt b span{opacity:.5;font-size:.9em}
+.pc .meta{display:flex;gap:.6rem;align-items:center;font-size:.85rem;color:var(--on-m)}
+.pc .meta::before{content:"";width:2px;height:.9em;background:var(--accent)}
+.pc .ds{font-size:.93rem;color:var(--on-m)}
+
+/* ===== por que a still (cartões inclinados) ===== */
+.why{display:grid;gap:1.4rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,14rem),1fr));padding-block:1rem}
+.note{border-radius:22px;padding:clamp(1.4rem,3vw,2rem);display:grid;gap:1rem;align-content:start;box-shadow:0 22px 40px -26px rgba(12,16,20,.6);transform:rotate(var(--r,0deg));transition:transform .6s var(--spring)}
+.note:nth-child(odd){background:var(--dk-2);color:var(--on)}.note:nth-child(even){background:var(--lt-2);color:var(--ink)}
+.note:nth-child(1){--r:-3deg}.note:nth-child(2){--r:2deg}.note:nth-child(3){--r:-1.5deg}.note:nth-child(4){--r:2.5deg}
+.note:hover{transform:rotate(0) translateY(-6px)}
+.note .q{font:800 2rem/1 var(--d);color:var(--accent)}
+.note b{font:800 1.3rem/1 var(--d);text-transform:uppercase;letter-spacing:-.02em}
+.note p{opacity:.75;font-size:.97rem}
+.stat{display:grid;grid-template-columns:1fr;background:var(--lt-2);border-radius:999px;margin-top:2.6rem;box-shadow:0 20px 40px -30px rgba(12,16,20,.45);overflow:hidden}
+@media(min-width:760px){.stat{grid-template-columns:1fr 1fr}}
+@media(max-width:759px){.stat{border-radius:26px}}
+.stat div{display:flex;align-items:center;justify-content:center;gap:1rem;padding:1.5rem 1.8rem}
+.stat div+div{border-top:1px solid var(--ink-l)}
+@media(min-width:760px){.stat div+div{border-top:0;border-left:1px solid var(--ink-l)}}
+.stat strong{font:800 clamp(2.4rem,4.4vw,3.4rem)/1 var(--d);letter-spacing:-.04em;white-space:nowrap}
+.stat span{color:var(--ink-m);font-size:.95rem;max-width:22ch}
+
+/* ===== dúvidas ===== */
+.fq{display:grid;gap:2.5rem}
+@media(min-width:900px){.fq{grid-template-columns:.85fr 1.15fr;gap:5rem}.fq>div:first-child{position:sticky;top:7rem;align-self:start}}
+.fq h2{font-size:clamp(2.4rem,5.4vw,4.4rem)}
+.fq .help{margin-top:1.4rem;color:var(--ink-m)}
+.fq .help a{color:var(--ink);text-decoration:none;border-bottom:2px solid var(--accent)}
+details{border-bottom:1px solid var(--ink-l)}
+summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding-block:1.4rem;font-size:clamp(1.05rem,1.6vw,1.3rem)}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"";flex:none;width:2.2rem;height:2.2rem;border-radius:50%;border:1px solid var(--ink-l);background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' stroke='%230C1014' stroke-width='1.8'%3E%3Cpath d='M1 1.5l5 5 5-5'/%3E%3C/svg%3E") center no-repeat;transition:transform .4s var(--spring),background-color .3s}
+details[open] summary::after{transform:rotate(180deg);background-color:rgba(229,50,66,.15)}
+details p{color:var(--ink-m);padding-bottom:1.4rem;max-width:56ch}
+.fq-end{display:flex;align-items:center;gap:1.4rem;flex-wrap:wrap;margin-top:2.2rem}
+
+/* ===== rodapé ===== */
+.ft{padding-block:clamp(3.5rem,7vw,5rem) 2rem}
+.ft .w{display:grid;gap:2.5rem}
+@media(min-width:860px){.ft .w{grid-template-columns:1.2fr 1fr 1fr}}
+.ft .lo{font:800 clamp(3rem,7vw,5rem)/.85 var(--d);letter-spacing:-.05em}.ft .lo i{font-style:normal;color:var(--accent)}
+.ft .ey{color:var(--on-m)}
+.ft nav{display:grid;gap:.5rem}.ft nav a{text-decoration:none;color:var(--on-m)}.ft nav a:hover{color:var(--on)}
+.ft .cp{grid-column:1/-1;border-top:1px solid var(--on-l);padding-top:1.4rem;color:var(--on-m);font-size:.88rem}
+
+/* ===== barra fixa ===== */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:45;background:var(--accent);color:var(--on);border-top:3px solid var(--ink);padding-bottom:env(safe-area-inset-bottom,0px);transform:translateY(110%);transition:transform .6s var(--spring)}
+.bar.on{transform:none}
+.bar .w{display:flex;align-items:center;justify-content:center;gap:clamp(.8rem,3vw,2.2rem);min-height:5.2rem}
+.bar .bn{font:800 1.5rem/.82 var(--d);text-transform:uppercase;letter-spacing:-.03em}
+.bar .tg{font:800 .82rem var(--d);text-transform:uppercase;background:var(--ink);color:var(--on);padding:.3rem .6rem;border-radius:8px;transform:rotate(-4deg)}
+.bar .tx small{display:block;font-size:.7rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;opacity:.85}
+.bar .tx b{font:800 1.15rem var(--d);text-transform:uppercase;letter-spacing:-.01em}
+.bar .pill{background:var(--ink);color:var(--on);padding:.35rem .35rem .35rem 1.2rem;font-size:.92rem}.bar .pill i{background:var(--accent);color:var(--on);width:2.2rem;height:2.2rem}
+@media(max-width:700px){.bar .tg,.bar .tx{display:none}.bar .w{justify-content:space-between}}
+
+/* ===== desenhos (traço a lápis) ===== */
+.sk{fill:none;stroke:currentColor;stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round}
+.sk.r{stroke:var(--accent);stroke-width:5}.sk.t{stroke-width:1.4;opacity:.45}
+.hf{opacity:1}.nt{font:500 13px var(--b);fill:currentColor;opacity:.55}
+.js .sk{stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.6s cubic-bezier(.5,0,.2,1) calc(.25s + var(--k,0)*.18s)}
+.js .hf,.js .nt{opacity:0;transition:opacity .8s ease calc(1.2s + var(--k,0)*.18s)}
+.js .pc.in .sk,.js .case.in .sk{stroke-dashoffset:0}.js .pc.in .hf,.js .case.in .hf{opacity:1}.js .pc.in .nt,.js .case.in .nt{opacity:.55}
+
+/* ===== projeto aberto (tema claro) ===== */
+.case{--ink:#0C1014;color:var(--ink)}
+/* projeto aberto: o quadro clicado se expande até ocupar a tela */
+.case{position:fixed;inset:0;z-index:50;background:var(--bg);overflow-y:auto;overscroll-behavior:contain;
+ clip-path:inset(var(--ct,40%) var(--cr,40%) var(--cb,40%) var(--cl,40%) round 22px);transition:clip-path .75s cubic-bezier(.7,0,.2,1)}
+.case.full{clip-path:inset(0 0 0 0 round 0px)}
+.case-bar{position:sticky;top:0;z-index:2;background:rgba(242,242,240,.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
+.case-bar .w{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:4.4rem}
+.case-bar .cat{font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.case-bar .cat b{color:var(--accent);font-weight:600}
+.cx{display:inline-flex;align-items:center;gap:.5rem;background:transparent;color:var(--ink);border:1.5px solid var(--line);border-radius:999px;padding:.55rem 1rem;font:600 .9rem var(--b);cursor:pointer;transition:border-color .2s}
+.cx:hover{border-color:var(--accent)}.cx i{font-style:normal;font-size:1.2rem;line-height:1;transition:transform .35s var(--spring)}.cx:hover i{transform:rotate(90deg)}
+.case-hero{display:grid;gap:clamp(1.5rem,4vw,3.5rem);padding-block:clamp(2rem,5vw,4rem);align-items:center}
+@media(min-width:900px){.case-hero{grid-template-columns:1.1fr .9fr}}
+.paper{color:var(--ink);border-radius:22px;overflow:hidden;background:radial-gradient(circle,rgba(12,16,20,.13) 1px,transparent 1.2px) 0 0/18px 18px,var(--paper);box-shadow:inset 0 0 0 1px rgba(12,16,20,.08)}
+.paper svg{display:block;width:100%;height:auto}
+.case h2{font-size:clamp(2.2rem,5.4vw,4.2rem);text-wrap:balance}
+.case .intro{color:var(--muted);font-size:clamp(1.05rem,1.8vw,1.25rem);margin-top:1.2rem;max-width:42ch}
+.facts{display:grid;gap:1.2rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,13rem),1fr));border-block:1px solid var(--line);padding-block:1.6rem}
+.facts small{display:block;font-size:.75rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem}
+.facts .tags{display:flex;flex-wrap:wrap;gap:.4rem}.facts .tags span{font-size:.85rem;border:1px solid var(--line);border-radius:999px;padding:.25rem .75rem}
+.story{display:grid;gap:2rem;padding-block:clamp(2.5rem,6vw,4.5rem)}
+@media(min-width:800px){.story{grid-template-columns:1fr 1fr;gap:4rem}}
+.story h3{font-size:clamp(1.4rem,2.6vw,1.9rem);margin-bottom:.7rem}.story h3::before{content:"";display:block;width:1.6rem;height:2px;background:var(--accent);margin-bottom:1rem}
+.story p{color:var(--muted);max-width:52ch}
+.gal{display:grid;gap:1.25rem;grid-template-columns:1fr}
+@media(min-width:760px){.gal{grid-template-columns:1fr 1fr}.gal figure:first-child{grid-column:1/-1}.gal figure:first-child .paper svg{height:clamp(260px,34vw,440px)}}
+.gal figure{margin:0;display:grid;gap:.7rem}.gal figcaption{color:var(--muted);font-size:.92rem}
+.case-end{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem;padding-block:clamp(2.5rem,6vw,4.5rem) clamp(3rem,7vw,5rem);margin-top:clamp(2.5rem,6vw,4.5rem);border-top:1px solid var(--line)}
+.nx{background:none;border:0;padding:0;color:var(--ink);cursor:pointer;text-align:left;font:inherit}
+.nx small{display:block;color:var(--muted);font-size:.85rem;margin-bottom:.2rem}
+.nx b{font:600 clamp(1.4rem,3.4vw,2.4rem)/1.05 var(--d);letter-spacing:-.02em;transition:color .2s}.nx:hover b{color:var(--accent)}
+.js .case .ci{opacity:0;transform:translateY(30px);transition:opacity .7s var(--ease) calc(var(--n,0)*.08s),transform .9s var(--spring) calc(var(--n,0)*.08s)}
+.js .case.in .ci{opacity:1;transform:none}
+body.lock{overflow:hidden}
+
+/* ===== motion ao rolar ===== */
+.js [data-rv]{opacity:0;transform:translateY(40px);transition:opacity .9s var(--ease) var(--dl,0s),transform 1s var(--spring) var(--dl,0s)}
+.js [data-rv=scale]{transform:scale(.86) translateY(40px)}
+.js [data-rv=tilt]{transform:translateY(70px) rotate(calc(var(--r,0deg) * 4))}
+.js [data-rv].in{opacity:1;transform:none}
+.js [data-rv=tilt].in{transform:rotate(var(--r,0deg))}
+.js .note[data-rv=tilt].in:hover{transform:rotate(0) translateY(-6px)}
+.wd{display:inline-block;overflow:hidden;vertical-align:top;padding:.04em .04em .1em}
+.wd>span{display:inline-block;animation:up 1s var(--ease) both;animation-delay:calc(.15s + var(--i)*.08s)}
+@keyframes up{from{transform:translateY(110%)}to{transform:none}}
+.fade{animation:fade .8s var(--ease) both;animation-delay:var(--fd,0s)}
+@keyframes fade{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto}
+ *,*::before,*::after{animation:none!important;transition:none!important}
+ .js [data-rv]{opacity:1!important;transform:none!important}
+ .js [data-rv=tilt]{transform:rotate(var(--r,0deg))!important}
+ .js .sk{stroke-dashoffset:0!important}.js .hf,.js .nt{opacity:1!important}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<filter id="pencil" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency=".035" numOctaves="2" seed="4"/><feDisplacementMap in="SourceGraphic" scale="3.5"/></filter>
+<pattern id="hatch" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="9" stroke="#E53242" stroke-width="3"/></pattern>
+</defs></svg>
+
+<header class="top" id="top"><div class="w">
+  <a class="logo" href="#topo">STILL<i>.</i></a>
+  <nav aria-label="Principal"><a href="#como-funciona">como funciona</a><a href="#frentes">frentes</a><a href="#portfolio">portfólio</a><a href="#duvidas">dúvidas</a><a class="pill" href="/proposta">proposta <i>→</i></a></nav>
+</div></header>
+
+<main id="topo">
+<section class="hero dk grain">
+  <div class="bgtxt" aria-hidden="true"><span>Still studio · still studio · still studio · still studio · still studio · still studio ·</span><span>Branding · social media · motion · branding · social media · motion ·</span><span>Still studio · still studio · still studio · still studio · still studio · still studio ·</span><span>Branding · social media · motion · branding · social media · motion ·</span><span>Still studio · still studio · still studio · still studio · still studio · still studio ·</span></div>
+  <div class="w">
+    <div class="brand fade"><span class="stk">studio</span><b>STILL<i>.</i></b></div>
+    <div><span class="ey fade" style="--fd:.1s">Estúdio criativo independente</span></div>
+    <h1 aria-label="Sua marca merece ser entendida."><span class="wd" style="--i:0"><span>Sua</span></span> <span class="wd" style="--i:1"><span>marca</span></span> <span class="wd" style="--i:2"><span>merece</span></span> <span class="wd" style="--i:3"><span>ser</span></span> <span class="wd" style="--i:4"><span class="hl">entendida.</span></span></h1>
+    <p class="sub fade" style="--fd:.7s">Branding, social media e motion design para marcas, empresas e projetos culturais. Estratégia antes do desenho, conversa direta com quem cria.</p>
+    <div class="offer fade" style="--fd:.9s">
+      <div class="big-n"><small>do briefing à entrega</small><strong><em>em</em>4 etapas</strong><span class="stk">conversa direta</span></div>
+      <a class="pill" href="/proposta">quero uma proposta <i>→</i></a>
+    </div>
+  </div>
+  <div class="glow" aria-hidden="true"><div class="mq"><div class="mq-t js-mq"><span>Branding</span><span>Identidade visual</span><span>Social media</span><span>Motion design</span><span>Direção de arte</span><span>Projetos culturais</span></div></div></div>
+</section>
+
+<section class="cl dk" aria-label="Clientes e parceiros"><div class="w">
+  <p>Quem já criou com a STILL</p>
+  <!-- LOGOS: troque cada <span class="lg ph">Logo NN</span> por <span class="lg"><img src="/logos/nome.svg" alt="Nome"></span> -->
+  <div class="lgs"><div class="lgs-t js-mq" role="list"><span class="lg ph">Logo 01</span><span class="lg ph">Logo 02</span><span class="lg ph">Logo 03</span><span class="lg ph">Logo 04</span><span class="lg ph">Logo 05</span><span class="lg ph">Logo 06</span><span class="lg ph">Logo 07</span><span class="lg ph">Logo 08</span></div></div>
+</div></section>
+
+<section class="dk grain" id="como-funciona"><div class="w">
+  <div class="hd"><span class="ey" data-rv>Em quatro passos</span><h2 data-rv>Como funciona</h2></div>
+  <ol class="steps">
+    <li data-rv><span class="n">01</span><h3>Você conta o projeto</h3><p>Responde ao formulário de proposta e conversamos sobre o negócio, o público e o objetivo.</p></li>
+    <li data-rv><span class="n">02</span><h3>A gente define a estratégia</h3><p>Conceito e direção criativa ficam claros antes de abrir qualquer arquivo de design.</p></li>
+    <li data-rv><span class="n">03</span><h3>Criamos com você</h3><p>Desenvolvemos as soluções visuais e apresentamos para ajustes, com você em cada etapa.</p></li>
+    <li data-rv><span class="n">04</span><h3>Entregamos pronto</h3><p>Arquivos finalizados para usar no digital e no impresso, do perfil à fachada.</p></li>
+  </ol>
+  <p class="more" data-rv><b>E tem mais:</b> a IA entra como ferramenta, sempre com direção e revisão de quem cria.</p>
+</div></section>
+
+<div class="sf lt" aria-hidden="true"><div class="mq"><div class="mq-t js-mq" data-speed=".35"><span>pensa<em>antes</em>de desenhar</span><span>pensa<em>antes</em>de desenhar</span><span>pensa<em>antes</em>de desenhar</span></div></div></div>
+
+<section class="lt" id="frentes" style="padding-top:clamp(2rem,4vw,3rem)"><div class="w">
+  <div class="hd"><span class="ey" data-rv>Três frentes</span><h2 data-rv>Escolha por onde <span class="mark">começar</span></h2><p data-rv>Cada frente funciona sozinha ou junto com as outras. Em qualquer uma, o jeito de trabalhar é o mesmo.</p></div>
+  <div class="inc" data-rv>
+    <div><h3>O que vem em todo projeto</h3><p>Independente da frente que você escolher, estes pontos fazem parte do processo.</p></div>
+    <ul class="chk"><li>Conversa direta com quem cria</li><li>Estratégia antes do design</li><li>Apresentação e ajustes com você</li><li>Prazo informado junto com a proposta</li><li>Arquivos prontos para digital e impresso</li><li>IA como ferramenta, com direção humana</li></ul>
+  </div>
+  <div class="plans">
+    <article class="plan" data-rv><span class="nm">Social media</span><p class="ttl">Feed com assinatura</p><p class="lead">Linha visual e direção de arte para redes.</p>
+      <dl><div><dt>Entrega</dt><dd>Templates, feed, campanhas e stories.</dd></div><div><dt>Formato</dt><dd>Instagram, LinkedIn e TikTok.</dd></div><div><dt>Melhor para</dt><dd>Quem publica com frequência e quer consistência.</dd></div></dl>
+      <a class="pill dark" href="/proposta">pedir proposta <i>→</i></a></article>
+    <article class="plan ft" data-rv><span class="stk">do zero ao manual</span><span class="nm">Branding</span><p class="ttl">Identidade visual</p><p class="lead">Marca com personalidade em todos os pontos de contato.</p>
+      <dl><div><dt>Entrega</dt><dd>Logotipo, paleta, tipografia e manual de marca.</dd></div><div><dt>Formato</dt><dd>Digital e impresso. <span class="hi">A base para todas as outras frentes.</span></dd></div><div><dt>Melhor para</dt><dd>Marcas novas ou que precisam se reposicionar.</dd></div></dl>
+      <a class="pill" href="/proposta">pedir proposta <i>→</i></a></article>
+    <article class="plan" data-rv><span class="nm">Motion design</span><p class="ttl">Marca em movimento</p><p class="lead">Animação que dá ritmo e vida às ideias.</p>
+      <dl><div><dt>Entrega</dt><dd>Logo animado, vinhetas e reels.</dd></div><div><dt>Formato</dt><dd>MP4, GIF e Lottie.</dd></div><div><dt>Melhor para</dt><dd>Quem quer se destacar em vídeo e redes.</dd></div></dl>
+      <a class="pill dark" href="/proposta">pedir proposta <i>→</i></a></article>
+  </div>
+  <p class="foot-n" data-rv>Cada proposta é montada a partir das suas respostas no formulário, com escopo e prazo definidos para o seu projeto.</p>
+</div></section>
+
+<section class="dk grain" id="portfolio"><div class="w">
+  <div class="hd"><span class="ey" data-rv>O portfólio</span><h2 data-rv>O que já saiu <span class="hl">do papel</span></h2></div>
+  <div class="lib-h" data-rv><h3>Projetos</h3><hr><div class="nav-b"><button type="button" id="carPrev" aria-label="Projetos anteriores">←</button><button type="button" id="carNext" aria-label="Próximos projetos">→</button></div></div>
+  <div class="car" id="car">
+    <figure class="pc"><button class="front" type="button" data-case="0" aria-haspopup="dialog"><svg viewBox="0 0 500 400" preserveAspectRatio="xMidYMid meet" aria-hidden="true" filter="url(#pencil)"><g class="t"><path class="sk t" pathLength="1" d="M50 200H450M250 40V360M120 70L380 330M380 70L120 330"/></g>
+<circle class="sk" style="--k:1" pathLength="1" cx="250" cy="200" r="125"/>
+<circle class="sk t" style="--k:1" pathLength="1" cx="250" cy="200" r="72"/>
+<circle class="hf" cx="250" cy="200" r="72" fill="url(#hatch)" />
+<path class="sk r" style="--k:2" pathLength="1" stroke-width="16" d="M296 146C276 118 212 118 210 158C208 196 290 192 290 236C290 280 220 286 202 254"/>
+<path class="sk" style="--k:3" pathLength="1" d="M375 75l26-26M401 49l14 40M401 49l-40 14"/>
+<text class="nt" x="64" y="70">ø 250 · grid 8pt</text><text class="nt" x="64" y="372">símbolo v.03</text></svg><span class="chip">Ver projeto completo</span><span class="sr">: Branding e identidade visual</span></button>
+      <figcaption class="tt"><b>Branding e identidade visual <span aria-hidden="true">↗</span></b><span class="meta">Marca</span><span class="ds">Uma identidade construída do conceito ao sistema: símbolo, cores, tipografia e regras para usar tudo com consistência.</span></figcaption></figure>
+    <figure class="pc d"><button class="front" type="button" data-case="1" aria-haspopup="dialog"><svg viewBox="0 0 500 400" preserveAspectRatio="xMidYMid meet" aria-hidden="true" filter="url(#pencil)"><rect class="sk" pathLength="1" x="172" y="36" width="156" height="328" rx="26"/>
+<path class="sk" style="--k:1" pathLength="1" d="M230 58H270"/>
+<path class="sk" style="--k:2" pathLength="1" d="M190 100h36v36h-36zM232 100h36v36h-36zM274 100h36v36h-36zM190 142h36v36h-36zM232 142h36v36h-36zM274 142h36v36h-36zM190 184h36v36h-36zM232 184h36v36h-36zM274 184h36v36h-36z"/>
+<rect class="hf" x="232" y="142" width="36" height="36" fill="url(#hatch)"/>
+<path class="sk t" style="--k:3" pathLength="1" d="M190 250H310M190 272H280M190 294H296"/>
+<path class="sk r" style="--k:3" pathLength="1" d="M392 150c-22-16-40-30-40-48 0-14 10-22 21-22 9 0 15 6 19 12 4-6 10-12 19-12 11 0 21 8 21 22 0 18-18 32-40 48z"/>
+<path class="sk" style="--k:4" pathLength="1" d="M58 236c0-22 18-36 44-36s44 14 44 36-18 36-44 36c-6 0-12-1-17-3l-21 13 5-20c-7-7-11-16-11-26z"/>
+<text class="nt" x="352" y="186">+ 1,2 mil</text><text class="nt" x="64" y="306">comentários</text></svg><span class="chip">Ver projeto completo</span><span class="sr">: Social media</span></button>
+      <figcaption class="tt"><b>Social media <span aria-hidden="true">↗</span></b><span class="meta">Direção de arte</span><span class="ds">Uma linha visual para redes, com templates e direção de arte que deixam o feed consistente e fácil de manter.</span></figcaption></figure>
+    <figure class="pc"><button class="front" type="button" data-case="2" aria-haspopup="dialog"><svg viewBox="0 0 500 400" preserveAspectRatio="xMidYMid meet" aria-hidden="true" filter="url(#pencil)"><path class="sk" pathLength="1" d="M48 318H452"/>
+<path class="sk t" style="--k:1" pathLength="1" stroke-dasharray="6 8" d="M78 96Q128 96 156 306Q206 160 256 306Q292 214 330 306Q358 262 392 306"/>
+<circle class="sk r" style="--k:2" pathLength="1" cx="78" cy="96" r="24"/>
+<circle class="hf" cx="78" cy="96" r="24" fill="url(#hatch)"/>
+<ellipse class="sk" style="--k:3" pathLength="1" cx="156" cy="306" rx="31" ry="12"/>
+<circle class="sk t" style="--k:3" pathLength="1" cx="206" cy="186" r="20"/>
+<ellipse class="sk" style="--k:4" pathLength="1" cx="256" cy="307" rx="27" ry="11"/>
+<circle class="sk r" style="--k:5" pathLength="1" cx="420" cy="294" r="22"/>
+<path class="sk" style="--k:5" pathLength="1" d="M60 362H440M78 354l8 8-8 8-8-8zM156 354l8 8-8 8-8-8zM256 354l8 8-8 8-8-8zM330 354l8 8-8 8-8-8zM420 354l8 8-8 8-8-8z"/>
+<text class="nt" x="104" y="74">ease out · 24 fps</text></svg><span class="chip">Ver projeto completo</span><span class="sr">: Motion design</span></button>
+      <figcaption class="tt"><b>Motion design <span aria-hidden="true">↗</span></b><span class="meta">Animação</span><span class="ds">Animações que dão ritmo à marca: vinhetas, logos animados e peças curtas para reels.</span></figcaption></figure>
+    <figure class="pc d"><button class="front" type="button" data-case="3" aria-haspopup="dialog"><svg viewBox="0 0 500 400" preserveAspectRatio="xMidYMid meet" aria-hidden="true" filter="url(#pencil)"><g transform="rotate(-3 250 200)">
+<rect class="sk" pathLength="1" x="140" y="46" width="220" height="300" rx="3"/>
+<circle class="sk r" style="--k:1" pathLength="1" cx="250" cy="148" r="62"/>
+<circle class="hf" cx="250" cy="148" r="62" fill="url(#hatch)"/>
+<path class="sk" style="--k:2" pathLength="1" stroke-width="9" d="M166 248H334"/>
+<path class="sk" style="--k:3" pathLength="1" d="M166 276H300M166 298H270M166 320H318"/>
+<path class="sk t" style="--k:1" pathLength="1" stroke-width="10" d="M120 56l52-22M328 34l52 22"/>
+</g>
+<path class="sk r" style="--k:4" pathLength="1" d="M410 96v36M392 114h36M397 101l26 26M423 101l-26 26"/>
+<text class="nt" x="60" y="380">50 × 70 cm · serigrafia</text></svg><span class="chip">Ver projeto completo</span><span class="sr">: Identidade para projetos culturais</span></button>
+      <figcaption class="tt"><b>Identidade para projetos culturais <span aria-hidden="true">↗</span></b><span class="meta">Cartaz</span><span class="ds">Identidades para eventos, exposições e festivais, do cartaz principal às peças digitais de divulgação.</span></figcaption></figure>
+  </div>
+</div></section>
+
+<section class="lt"><div class="w">
+  <div class="hd"><span class="ey" data-rv>Por que a STILL</span><h2 data-rv>Um estúdio que <span class="mark">pensa antes</span> de desenhar</h2></div>
+  <div class="why">
+    <div class="note" data-rv="tilt" style="--r:-3deg"><span class="q">“</span><b>Estratégia e design juntos</b><p>Cada peça nasce de uma ideia clara sobre o negócio e o público.</p></div>
+    <div class="note" data-rv="tilt" style="--r:2deg"><span class="q">“</span><b>Conversa direta</b><p>Você fala com quem cria o seu projeto, do primeiro contato à entrega.</p></div>
+    <div class="note" data-rv="tilt" style="--r:-1.5deg"><span class="q">“</span><b>Do digital ao impresso</b><p>Marca, redes, vídeo, motion e gráfica com a mesma assinatura.</p></div>
+    <div class="note" data-rv="tilt" style="--r:2.5deg"><span class="q">“</span><b>IA com direção humana</b><p>Tecnologia para ampliar a criação, sempre revisada por quem cria.</p></div>
+  </div>
+  <!-- NÚMEROS: troque pelos dados reais do estúdio -->
+  <div class="stat" data-rv><div><strong>3</strong><span>frentes que se conectam: branding, social e motion</span></div><div><strong>100%</strong><span>dos projetos com direção e revisão humana</span></div></div>
+</div></section>
+
+<section class="lt" id="duvidas" style="padding-top:0"><div class="w fq">
+  <div><span class="ey" data-rv>Dúvidas</span><h2 data-rv>O que perguntam antes de <span class="mark">começar.</span></h2><p class="help" data-rv>Prefere conversar? Responda ao <a href="/proposta">formulário de proposta</a> e a gente retorna.</p></div>
+  <div>
+    <details data-rv><summary>Quanto tempo leva um projeto?</summary><p>Depende do escopo. Informamos o prazo estimado junto com a proposta.</p></details>
+    <details data-rv><summary>Vocês trabalham com marcas que já existem?</summary><p>Sim. Podemos partir da sua identidade atual ou construir uma nova, conforme a necessidade.</p></details>
+    <details data-rv><summary>Atendem projetos culturais, esportivos e institucionais?</summary><p>Sim. Esses projetos fazem parte da nossa atuação, além de marcas e empresas.</p></details>
+    <details data-rv><summary>Vocês usam inteligência artificial?</summary><p>Usamos a IA como ferramenta dentro do processo criativo, sempre com direção e revisão humana.</p></details>
+    <details data-rv><summary>Como peço uma proposta?</summary><p>Pela nossa página de proposta. A partir das suas respostas, entramos em contato com os próximos passos.</p></details>
+    <div class="fq-end" data-rv><span>Sem mais dúvidas?</span><a class="pill red" href="/proposta">solicitar proposta <i>↗</i></a></div>
+  </div>
+</div></section>
+
+<div class="sf lt" aria-hidden="true"><div class="mq"><div class="mq-t js-mq" data-speed=".35"><span>design<em>com</em>intenção</span><span>design<em>com</em>intenção</span><span>design<em>com</em>intenção</span></div></div></div>
+</main>
+
+<footer class="ft dk grain"><div class="w">
+  <div><p class="lo">STILL<i>.</i></p><p style="color:var(--on-m);margin-top:1rem;max-width:30ch">Estúdio criativo independente. Branding, social media e motion design.</p></div>
+  <div><span class="ey">Links</span><nav aria-label="Rodapé"><a href="#como-funciona">Como funciona</a><a href="#frentes">Frentes</a><a href="#portfolio">Portfólio</a><a href="#duvidas">Dúvidas</a></nav></div>
+  <div><span class="ey">Fale com a STILL</span><nav><a href="/proposta">Solicitar proposta</a></nav></div>
+  <p class="cp">© 2026 STILL STUDIO</p>
+</div></footer>
+
+<div class="bar" id="bar" aria-label="Solicitar proposta"><div class="w">
+  <span class="bn">Still<br>studio</span><span class="tg">Agenda aberta</span>
+  <span class="tx"><small>Branding · social · motion</small><b>Conte sobre o seu projeto</b></span>
+  <a class="pill" href="/proposta">solicitar proposta <i>→</i></a>
+</div></div>
+
+<div class="case" id="case" role="dialog" aria-modal="true" aria-labelledby="caseTitle" hidden>
+  <div class="case-bar"><div class="w"><span class="cat">Projeto <b id="caseNum">01</b> / 04</span><button class="cx" type="button" id="caseClose">Fechar <i>×</i></button></div></div>
+  <div class="w" id="caseBody"></div>
+</div>
+
+<script>
+(function(){
+ var reduce=matchMedia("(prefers-reduced-motion:reduce)").matches;
+ var $=function(s,c){return [].slice.call((c||document).querySelectorAll(s))};
+
+ /* revelar ao entrar na tela, escalonado por grupo */
+ var g=new Map();$("[data-rv]").forEach(function(el){var p=el.parentNode,n=g.get(p)||0;g.set(p,n+1);el.style.setProperty("--dl",Math.min(n,8)*0.09+"s")});
+ var io=("IntersectionObserver" in window&&!reduce)?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:.15,rootMargin:"0px 0px -8% 0px"}):null;
+ $("[data-rv],.pc").forEach(function(el){io?io.observe(el):el.classList.add("in")});
+
+ /* menu e barra fixa */
+ var top=document.getElementById("top"),bar=document.getElementById("bar"),hero=document.querySelector(".hero"),tk=false;
+ function frame(){tk=false;var y=scrollY;top.classList.toggle("sc",y>40);bar.classList.toggle("on",y>hero.offsetHeight*.7)}
+ addEventListener("scroll",function(){if(!tk){tk=true;requestAnimationFrame(frame)}},{passive:true});frame();
+
+ /* faixas que correm: duplicam o conteúdo e aceleram com a rolagem */
+ var mqs=$(".js-mq").map(function(t){$(":scope>*",t).forEach(function(c){var k=c.cloneNode(true);k.setAttribute("aria-hidden","true");k.removeAttribute("role");t.appendChild(k)});return {t:t,x:0,sp:parseFloat(t.dataset.speed||".6")}});
+ var lastY=scrollY,vel=0;
+ if(!reduce)(function loop(){var y=scrollY;vel+=((y-lastY)-vel)*.2;lastY=y;var boost=Math.min(Math.abs(vel),60)*.3;
+  mqs.forEach(function(m){m.x-=m.sp+boost;var gap=parseFloat(getComputedStyle(m.t).columnGap)||0,half=(m.t.scrollWidth+gap)/2;if(-m.x>=half)m.x+=half;m.t.style.transform="translate3d("+m.x+"px,0,0)"});
+  requestAnimationFrame(loop)})();
+
+ /* carrossel do portfólio */
+ var car=document.getElementById("car"),pv=document.getElementById("carPrev"),nx=document.getElementById("carNext");
+ function step(d){var c=car.querySelector(".pc");car.scrollBy({left:d*(c.offsetWidth+18),behavior:reduce?"auto":"smooth"})}
+ function upd(){pv.disabled=car.scrollLeft<8;nx.disabled=car.scrollLeft+car.clientWidth>=car.scrollWidth-8}
+ pv.addEventListener("click",function(){step(-1)});nx.addEventListener("click",function(){step(1)});car.addEventListener("scroll",upd,{passive:true});upd();
+
+ /* 6. Portfólio: clicar no quadro expande o projeto completo */
+ var PAPER=function(svg,vb){return '<div class="paper"><svg viewBox="'+(vb||"0 0 400 300")+'" aria-hidden="true" filter="url(#pencil)">'+svg+'</svg></div>'};
+ var CASES=[
+  {cat:"Marca",title:"Branding e identidade visual",intro:"Uma identidade construída do conceito ao sistema: símbolo, cores, tipografia e regras para usar tudo com consistência.",
+   tags:["Logotipo","Paleta","Tipografia","Manual de marca"],fmt:"Digital e impresso",
+   challenge:"Dar à marca uma presença reconhecível, que funcione do perfil nas redes à fachada, sem perder a personalidade em nenhum ponto de contato.",
+   approach:"Começamos por uma conversa sobre o negócio e o público. Com o conceito definido, desenhamos o símbolo sobre um grid de construção e, a partir dele, chegamos à paleta, à tipografia e ao manual de uso.",
+   gal:[["Paleta de cores",'<rect class="hf" x="30" y="40" width="80" height="160" fill="#E53242"/><rect class="hf" x="118" y="40" width="80" height="160" fill="#0C1014"/><rect class="hf" x="206" y="40" width="80" height="160" fill="#FEFEFE"/><rect class="hf" x="294" y="40" width="80" height="160" fill="#25292E"/><path class="sk" pathLength="1" d="M30 40h344v160H30z"/><text class="nt" x="30" y="232">#E53242</text><text class="nt" x="118" y="232">#0C1014</text><text class="nt" x="206" y="232">#FEFEFE</text><text class="nt" x="294" y="232">#25292E</text>'],
+        ["Tipografia",'<text class="hf" x="40" y="200" font-family="Bricolage Grotesque,Arial Black,sans-serif" font-weight="800" font-size="150" fill="currentColor">Aa</text><path class="sk t" pathLength="1" d="M30 200H370M30 92H370"/><path class="sk r" style="--k:1" pathLength="1" d="M300 70l40 40"/><text class="nt" x="40" y="250">Bricolage Grotesque · 800</text>'],
+        ["Cartão de visita",'<path class="sk t" pathLength="1" d="M60 70h230v140H60z"/><g transform="rotate(-6 200 150)"><path class="sk" style="--k:1" pathLength="1" d="M110 90h230v140H110z"/><path class="sk r" style="--k:2" pathLength="1" stroke-width="9" d="M168 132C158 118 130 118 130 138C130 156 166 154 166 174C166 196 134 198 126 184"/><path class="sk" style="--k:3" pathLength="1" d="M200 140h110M200 162h80M200 184h96"/></g>']]},
+  {cat:"Direção de arte",title:"Social media",intro:"Uma linha visual para redes, com templates e direção de arte que deixam o feed consistente e fácil de manter.",
+   tags:["Templates","Feed","Campanhas","Stories"],fmt:"Instagram, LinkedIn e TikTok",
+   challenge:"Publicar com frequência sem que cada post pareça de uma marca diferente, e ainda abrir espaço para campanhas com cara própria.",
+   approach:"Definimos uma grade, hierarquia de textos e um conjunto de templates editáveis. As campanhas ganham variações de cor e composição dentro do mesmo sistema.",
+   gal:[["Templates de post",'<path class="sk" pathLength="1" d="M30 50h150v150H30zM220 50h150v150H220z"/><circle class="hf" cx="105" cy="110" r="38" fill="url(#hatch)"/><circle class="sk r" style="--k:1" pathLength="1" cx="105" cy="110" r="38"/><path class="sk" style="--k:2" pathLength="1" d="M50 170h110M240 80h100M240 100h70"/><rect class="hf" x="240" y="130" width="110" height="50" fill="url(#hatch)"/><text class="nt" x="30" y="236">1080 × 1350</text>'],
+        ["Stories",'<rect class="sk" pathLength="1" x="140" y="20" width="120" height="250" rx="16"/><path class="sk r" style="--k:1" pathLength="1" d="M152 36h30M188 36h30M224 36h24"/><path class="sk" style="--k:2" pathLength="1" stroke-width="7" d="M160 150h80M160 172h60"/><path class="sk t" style="--k:3" pathLength="1" d="M160 240h80"/>'],
+        ["Grade do feed",'<path class="sk" pathLength="1" d="M60 30h90v90H60zM155 30h90v90h-90zM250 30h90v90h-90zM60 125h90v90H60zM155 125h90v90h-90zM250 125h90v90h-90z"/><rect class="hf" x="155" y="30" width="90" height="90" fill="url(#hatch)"/><rect class="hf" x="60" y="125" width="90" height="90" fill="url(#hatch)"/><rect class="hf" x="250" y="125" width="90" height="90" fill="url(#hatch)"/><text class="nt" x="60" y="250">ritmo: 1 destaque a cada 3 posts</text>']]},
+  {cat:"Animação",title:"Motion design",intro:"Animações que dão ritmo à marca: vinhetas, logos animados e peças curtas para reels.",
+   tags:["Logo animado","Vinhetas","Reels"],fmt:"MP4, GIF e Lottie",
+   challenge:"Fazer a marca se mover de um jeito próprio, com movimentos que reforcem a personalidade em vez de só enfeitar.",
+   approach:"Criamos um storyboard, escolhemos curvas de movimento que combinam com a marca e animamos quadro a quadro até chegar ao ritmo certo, com versões para cada formato.",
+   gal:[["Storyboard",'<path class="sk" pathLength="1" d="M20 70h110v90H20zM145 70h110v90H145zM270 70h110v90H270z"/><circle class="sk r" style="--k:1" pathLength="1" cx="50" cy="95" r="12"/><ellipse class="sk r" style="--k:2" pathLength="1" cx="200" cy="148" rx="18" ry="8"/><circle class="sk r" style="--k:3" pathLength="1" cx="345" cy="100" r="12"/><text class="nt" x="20" y="190">01</text><text class="nt" x="145" y="190">02</text><text class="nt" x="270" y="190">03</text>'],
+        ["Curva de movimento",'<path class="sk t" pathLength="1" d="M60 250V40M60 250H360"/><path class="sk r" style="--k:1" pathLength="1" stroke-width="6" d="M60 250C160 250 180 40 360 40"/><path class="sk t" style="--k:2" pathLength="1" d="M60 250L160 250M360 40L180 40"/><circle class="hf" cx="160" cy="250" r="6" fill="currentColor"/><circle class="hf" cx="180" cy="40" r="6" fill="currentColor"/><text class="nt" x="200" y="280">ease in-out</text>'],
+        ["Logo animado",'<circle class="sk t" pathLength="1" cx="80" cy="150" r="22"/><circle class="sk" style="--k:1" pathLength="1" cx="200" cy="150" r="62"/><circle class="sk r" style="--k:2" pathLength="1" cx="320" cy="150" r="50"/><path class="sk r" style="--k:3" pathLength="1" stroke-width="8" d="M338 128C330 116 306 116 306 134C306 150 336 148 336 166C336 186 308 188 300 176"/><text class="nt" x="60" y="250">0 s</text><text class="nt" x="180" y="250">0,4 s</text><text class="nt" x="300" y="250">0,8 s</text>']]},
+  {cat:"Cartaz",title:"Identidade para projetos culturais",intro:"Identidades para eventos, exposições e festivais, do cartaz principal às peças digitais de divulgação.",
+   tags:["Cartaz","Key visual","Peças digitais"],fmt:"Impressão e redes",
+   challenge:"Criar uma imagem forte o bastante para a rua e flexível o bastante para dezenas de formatos, do ingresso ao banner.",
+   approach:"Partimos de um key visual simples, com formas e tipografia marcantes, e desdobramos em um sistema de peças que mantém a mesma assinatura em qualquer tamanho.",
+   gal:[["Versões do cartaz",'<g transform="rotate(-5 120 150)"><path class="sk" pathLength="1" d="M60 30h120v170H60z"/><circle class="hf" cx="120" cy="90" r="34" fill="url(#hatch)"/><path class="sk" style="--k:1" pathLength="1" d="M76 150h88M76 170h60"/></g><g transform="rotate(4 280 150)"><path class="sk" style="--k:1" pathLength="1" d="M220 40h120v170H220z"/><rect class="hf" x="240" y="60" width="80" height="70" fill="url(#hatch)"/><path class="sk" style="--k:2" pathLength="1" d="M236 160h88M236 180h60"/></g>'],
+        ["Ingresso",'<path class="sk" pathLength="1" d="M40 90h320v40a20 20 0 0 0 0 40v40H40v-40a20 20 0 0 0 0-40z"/><path class="sk t" style="--k:1" pathLength="1" d="M270 96v108"/><circle class="sk r" style="--k:2" pathLength="1" cx="120" cy="150" r="28"/><path class="sk" style="--k:3" pathLength="1" d="M170 136h70M170 158h50"/>'],
+        ["Banner digital",'<path class="sk" pathLength="1" d="M30 80h340v140H30z"/><circle class="hf" cx="300" cy="150" r="46" fill="url(#hatch)"/><circle class="sk r" style="--k:1" pathLength="1" cx="300" cy="150" r="46"/><path class="sk" style="--k:2" pathLength="1" stroke-width="8" d="M60 130h150"/><path class="sk" style="--k:3" pathLength="1" d="M60 160h110M60 182h80"/><text class="nt" x="30" y="250">1920 × 1080</text>']]}
+ ];
+ var cs=document.getElementById("case"),cbody=document.getElementById("caseBody"),cclose=document.getElementById("caseClose"),cnum=document.getElementById("caseNum"),fronts=$(".pc .front"),cur=-1,busy=false;
+ function fill(i){
+  var c=CASES[i],art=fronts[i].querySelector("svg").outerHTML,n=0,ci=function(){return ' class="ci" style="--n:'+(n++)+'"'};
+  cnum.textContent="0"+(i+1);
+  cbody.innerHTML=
+   '<div class="case-hero"><div'+ci()+'><div class="paper">'+art+'</div></div><div><span class="ey ci" style="--n:'+(n++)+'">'+c.cat+'</span><h2 id="caseTitle"'+ci()+'>'+c.title+'<span class="dot">.</span></h2><p class="intro ci" style="--n:'+(n++)+'">'+c.intro+'</p></div></div>'+
+   '<div class="facts ci" style="--n:'+(n++)+'"><div><small>Serviço</small>'+c.title+'</div><div><small>Formato</small>'+c.fmt+'</div><div><small>Entregáveis</small><div class="tags">'+c.tags.map(function(t){return "<span>"+t+"</span>"}).join("")+'</div></div></div>'+
+   '<div class="story"><div'+ci()+'><h3>O desafio</h3><p>'+c.challenge+'</p></div><div'+ci()+'><h3>Como resolvemos</h3><p>'+c.approach+'</p></div></div>'+
+   '<div class="gal">'+c.gal.map(function(g){return '<figure'+ci()+'>'+PAPER(g[1])+'<figcaption>'+g[0]+'</figcaption></figure>'}).join("")+'</div>'+
+   '<div class="case-end"><button class="nx" type="button" data-next><small>Próximo projeto</small><b>'+CASES[(i+1)%CASES.length].title+' →</b></button><a class="pill red" href="/proposta">quero um projeto assim <i>↗</i></a></div>';
+  cbody.querySelector("[data-next]").addEventListener("click",function(){swap((i+1)%CASES.length)});
+ }
+ function setRect(i){
+  var r=fronts[i].getBoundingClientRect(),W=innerWidth,H=innerHeight;
+  cs.style.setProperty("--ct",Math.max(0,r.top)+"px");cs.style.setProperty("--cl",Math.max(0,r.left)+"px");
+  cs.style.setProperty("--cr",Math.max(0,W-r.right)+"px");cs.style.setProperty("--cb",Math.max(0,H-r.bottom)+"px");
+ }
+ function open(i){
+  if(busy||cur>-1)return;busy=true;cur=i;fill(i);setRect(i);
+  cs.hidden=false;document.body.classList.add("lock");cs.scrollTop=0;
+  cs.offsetWidth;cs.classList.add("full");
+  setTimeout(function(){cs.classList.add("in");cclose.focus({preventScroll:true});busy=false},reduce?0:650);
+ }
+ function close(){
+  if(busy||cur<0)return;busy=true;var i=cur;
+  cs.classList.remove("in");cs.scrollTop=0;setRect(i);cs.classList.remove("full");
+  setTimeout(function(){cs.hidden=true;document.body.classList.remove("lock");fronts[i].focus({preventScroll:true});cur=-1;busy=false},reduce?0:750);
+ }
+ function swap(i){
+  cs.classList.remove("in");
+  setTimeout(function(){cur=i;fill(i);cs.scrollTop=0;cs.offsetWidth;cs.classList.add("in");cclose.focus({preventScroll:true})},reduce?0:350);
+ }
+ fronts.forEach(function(f){f.addEventListener("click",function(){open(+f.dataset.case)})});
+ cclose.addEventListener("click",close);
+ addEventListener("keydown",function(e){
+  if(cur<0)return;
+  if(e.key==="Escape")close();
+  if(e.key==="Tab"){var f=$("button,a[href]",cs),a=f[0],z=f[f.length-1];if(e.shiftKey&&document.activeElement===a){e.preventDefault();z.focus()}else if(!e.shiftKey&&document.activeElement===z){e.preventDefault();a.focus()}}
+ });
+
+
+
+ /* 7. FAQ com abertura animada */
+ $("details").forEach(function(d){
+  var s=d.querySelector("summary"),c=d.querySelector("p");
+  s.addEventListener("click",function(e){
+   e.preventDefault();
+   if(reduce){d.open=!d.open;return}
+   if(d.dataset.busy)return;d.dataset.busy="1";c.style.overflow="hidden";
+   if(!d.open){d.open=true;var h=c.offsetHeight;
+    c.animate([{height:"0px",opacity:0,marginTop:"0px"},{height:h+"px",opacity:1,marginTop:".8rem"}],{duration:380,easing:"cubic-bezier(.2,.7,.2,1)"}).onfinish=function(){c.style.overflow="";delete d.dataset.busy}
+   }else{var h2=c.offsetHeight;
+    c.animate([{height:h2+"px",opacity:1},{height:"0px",opacity:0,marginTop:"0px"}],{duration:300,easing:"ease"}).onfinish=function(){d.open=false;c.style.overflow="";delete d.dataset.busy}
+   }
+  });
+ });
+
+})();
+</script>
+</body>
+</html>
