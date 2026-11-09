@@ -1,0 +1,9 @@
+# Cabeçalhos de segurança para hospedagens que aceitam este arquivo (Netlify, Cloudflare Pages).
+# O GitHub Pages IGNORA este arquivo: lá o Content-Security-Policy vai como <meta> em cada página (tools/build.js).
+/*
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()
+  Cross-Origin-Opener-Policy: same-origin

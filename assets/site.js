@@ -158,6 +158,7 @@
   "Informe o nome da empresa ou do projeto.":["Enter the company or project name.","Ingresa el nombre de la empresa o del proyecto."],"Selecione o tamanho da equipe.":["Select the team size.","Selecciona el tamaño del equipo."],
   "Conte quais produtos ou serviços vocês oferecem.":["Tell us what products or services you offer.","Cuéntanos qué productos o servicios ofrecen."],"Escolha pelo menos um serviço.":["Choose at least one service.","Elige al menos un servicio."],
   "Selecione o prazo desejado.":["Select the desired timeline.","Selecciona el plazo deseado."],"Conte como nos conheceu.":["Tell us how you heard about us.","Cuéntanos cómo nos conociste."],
+  "Você acabou de enviar uma proposta. Aguarde alguns minutos para enviar outra.":["You just sent a proposal. Please wait a few minutes before sending another.","Acabas de enviar una propuesta. Espera unos minutos para enviar otra."],
   "Descreva o projeto com pelo menos 20 caracteres.":["Describe the project in at least 20 characters.","Describe el proyecto con al menos 20 caracteres."],
   "Não foi possível enviar sua solicitação agora. Verifique sua conexão e tente novamente.":["We couldn't send your request right now. Check your connection and try again.","No fue posible enviar tu solicitud ahora. Revisa tu conexión e inténtalo de nuevo."],
   /* controles */

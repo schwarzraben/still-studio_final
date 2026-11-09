@@ -1,0 +1,7 @@
+# Avisa (por pull request) quando houver versão nova das GitHub Actions usadas na publicação.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly

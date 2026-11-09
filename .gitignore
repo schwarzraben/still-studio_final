@@ -1,2 +1,5 @@
 # gerado na publicação a partir dos secrets do GitHub (não versionar)
 assets/config.js
+
+# saída local do tools/build.js
+_site/

@@ -60,6 +60,36 @@ Testes locais: crie `assets/config.js` com `window.STILL_CONFIG={formEndpoint:".
 Atenção: tudo o que o navegador usa para enviar o formulário é visível para quem inspecionar a página.
 Por isso o site não usa nenhuma chave secreta; o endereço alternativo do FormSubmit é feito para ficar público.
 
+## Segurança
+**Publicação:** o GitHub Actions roda `tools/build.js`, que monta a pasta publicada e:
+- publica só o necessário (ficam de fora `versao-b/`, `logo/`, `logos/`, `tools/`, `README.md`, `_headers` e `.github/`);
+- gera `assets/config.js` a partir do secret `FORM_ENDPOINT`;
+- coloca em cada página um **Content-Security-Policy** com o hash de cada script embutido
+  (só scripts do próprio site, estilos e fontes do Google Fonts, envio apenas para formsubmit.co,
+  sem `object`/`embed`, `base-uri` e `form-action` restritos) e `Referrer-Policy`;
+- **interrompe a publicação** se encontrar dado com cara de credencial, recurso por `http://` ou
+  handler inline (`onclick=` etc.).
+
+Se editar um `<script>` dentro de uma página, não precisa fazer nada: os hashes são recalculados a cada publicação.
+Para testar localmente: `node tools/build.js` e abra a pasta `_site` num servidor local.
+
+**Limite do GitHub Pages:** ele não permite cabeçalhos HTTP próprios. Por isso o CSP vai como `<meta>`, e proteções
+que só existem como cabeçalho (como `X-Frame-Options` e `frame-ancestors`) não se aplicam lá. O arquivo `_headers`
+já traz esses cabeçalhos para Netlify ou Cloudflare Pages, caso o site mude de hospedagem.
+
+**Formulário (antispam):**
+- campo-armadilha invisível (honeypot), verificado no navegador e enviado ao FormSubmit como `_honey`;
+- envio feito em menos de 5 segundos é tratado como robô: mostra "sucesso" e não envia nada;
+- no mesmo navegador: intervalo mínimo de 1 minuto entre envios e no máximo 3 por hora;
+- limite de tamanho em todos os campos e remoção de caracteres de controle;
+- no servidor, o FormSubmit aplica o próprio filtro de spam e limite de envios.
+As regras do navegador podem ser contornadas por quem enviar direto ao FormSubmit; o filtro do serviço cobre esse caso.
+
+**Dependências:** o site não usa bibliotecas JavaScript nem pacotes npm. As únicas dependências são as GitHub Actions
+da publicação, presas por commit (SHA) nas versões mais recentes (checkout v7.0.1, configure-pages v6.0.0,
+upload-pages-artifact v5.0.0, deploy-pages v5.0.1). O Dependabot (`.github/dependabot.yml`) abre um pull request
+quando sair versão nova.
+
 ## HTTPS
 - No GitHub Pages (`*.github.io`) o site é servido só por HTTPS, e o próprio GitHub redireciona HTTP para HTTPS.
 - Reforço nas páginas: todas carregam a regra `upgrade-insecure-requests` e um redirecionamento imediato de

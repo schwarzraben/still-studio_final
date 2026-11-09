@@ -128,18 +128,18 @@ textarea{min-height:9rem;resize:vertical}
         <div class="step" data-step="0">
           <h2 tabindex="-1">Dados de contato</h2><p>Como podemos falar com você?</p>
           <div class="fg">
-            <div class="fld"><label for="nome">Nome completo</label><input type="text" id="nome" name="nome" autocomplete="name"><span class="err" id="e-nome"></span></div>
-            <div class="fld"><label for="email">E-mail</label><input type="email" id="email" name="email" autocomplete="email" inputmode="email"><span class="err" id="e-email"></span></div>
-            <div class="fld"><label for="whats">WhatsApp</label><input type="tel" id="whats" name="whats" autocomplete="tel" inputmode="tel" placeholder="(11) 99999-9999"><span class="err" id="e-whats"></span></div>
-            <div class="fld"><label for="insta">Instagram <small>(opcional)</small></label><input type="text" id="insta" name="insta" placeholder="@seuperfil" autocapitalize="none"><span class="err"></span></div>
+            <div class="fld"><label for="nome">Nome completo</label><input type="text" id="nome" name="nome" autocomplete="name" maxlength="120"><span class="err" id="e-nome"></span></div>
+            <div class="fld"><label for="email">E-mail</label><input type="email" id="email" name="email" autocomplete="email" inputmode="email" maxlength="160"><span class="err" id="e-email"></span></div>
+            <div class="fld"><label for="whats">WhatsApp</label><input type="tel" id="whats" name="whats" autocomplete="tel" inputmode="tel" placeholder="(11) 99999-9999" maxlength="25"><span class="err" id="e-whats"></span></div>
+            <div class="fld"><label for="insta">Instagram <small>(opcional)</small></label><input type="text" id="insta" name="insta" placeholder="@seuperfil" autocapitalize="none" maxlength="60"><span class="err"></span></div>
           </div>
         </div>
         <div class="step" data-step="1" hidden>
           <h2 tabindex="-1">Sobre o seu negócio</h2><p>Um pouco de contexto sobre quem somos juntos.</p>
           <div class="fg">
-            <div class="fld"><label for="empresa">Nome da empresa ou do projeto</label><input type="text" id="empresa" name="empresa" autocomplete="organization"><span class="err" id="e-empresa"></span></div>
+            <div class="fld"><label for="empresa">Nome da empresa ou do projeto</label><input type="text" id="empresa" name="empresa" autocomplete="organization" maxlength="120"><span class="err" id="e-empresa"></span></div>
             <div class="fld"><label for="porte">Tamanho da equipe</label><select id="porte" name="porte"><option value="">Selecione uma opção</option><option>Profissional liberal</option><option>Micro (2 a 10 pessoas)</option><option>Pequena (11 a 50 pessoas)</option><option>Média (51 a 100 pessoas)</option><option>Grande (mais de 100 pessoas)</option><option>Projeto cultural ou independente</option></select><span class="err" id="e-porte"></span></div>
-            <div class="fld full"><label for="oferta">Quais produtos ou serviços vocês oferecem?</label><input type="text" id="oferta" name="oferta"><span class="err" id="e-oferta"></span></div>
+            <div class="fld full"><label for="oferta">Quais produtos ou serviços vocês oferecem?</label><input type="text" id="oferta" name="oferta" maxlength="300"><span class="err" id="e-oferta"></span></div>
           </div>
         </div>
         <div class="step" data-step="2" hidden>
@@ -232,7 +232,7 @@ var FORM_ENDPOINT=(window.STILL_CONFIG&&window.STILL_CONFIG.formEndpoint)||"";
    var ac=new AbortController(),t=setTimeout(function(){ac.abort()},20000);
    /* e-mail organizado: assunto com o nome do cliente, tabela com rótulos e "responder" indo direto para o cliente */
    var when=new Date(data.enviadoEm).toLocaleString("pt-BR",{dateStyle:"short",timeStyle:"short"});
-   var body={"_subject":"Nova proposta pelo site: "+data.nome+(data.empresa?" ("+data.empresa+")":""),"_template":"table","_captcha":"false","_replyto":data.email,
+   var body={"_honey":data._hp||"","_subject":"Nova proposta pelo site: "+data.nome+(data.empresa?" ("+data.empresa+")":""),"_template":"table","_captcha":"false","_replyto":data.email,
     "Nome":data.nome,"E-mail":data.email,"WhatsApp":data.whats,"Instagram":data.insta||"-","Empresa ou projeto":data.empresa,"Tamanho da equipe":data.porte,
     "O que oferecem":data.oferta,"Serviços":data.servico,"Prazo":data.prazo,"Como conheceu":data.origem,"Projeto e desafios":data.desafio,
     "Idioma do site":(document.documentElement.lang||"pt-BR"),"Enviado em":when};
@@ -241,19 +241,27 @@ var FORM_ENDPOINT=(window.STILL_CONFIG&&window.STILL_CONFIG.formEndpoint)||"";
     try{var j=await r.clone().json();if(j&&(j.success===false||j.success==="false"))throw new Error(j.message||j.error||"Envio recusado pelo servidor")}catch(x){if(x.message&&x.message!==""&&!(x instanceof SyntaxError))throw x}
    }finally{clearTimeout(t)}
    return}
-  if(window.claude&&claude.use){var db=await claude.use("db");if(db){await db.collection("propostas").add(data);return}}
   throw new Error("Nenhum destino de envio configurado (FORM_ENDPOINT vazio).")}
+ /* antispam no navegador: tempo mínimo de preenchimento e limite de envios (o FormSubmit filtra também no servidor) */
+ var t0=Date.now(),MIN_MS=5000,WAIT_MS=60000,MAX_HOUR=3;
+ function sentLog(){try{return JSON.parse(localStorage.getItem("still-sent")||"[]").filter(function(t){return Date.now()-t<3600000})}catch(x){return[]}}
+ function logSent(){try{var l=sentLog();l.push(Date.now());localStorage.setItem("still-sent",JSON.stringify(l))}catch(x){}}
+ var clean=function(v){return v.replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g,"").trim()};
  f.addEventListener("submit",async function(e){
   e.preventDefault();if(f._hp.value||busy||sending)return;
   if(!validate(cur))return;
   if(cur<2){go(cur+1);return}
   for(var i=0;i<2;i++){var bad=BY[i].some(function(n){return !check(n)});if(bad){go(i);return}}
   var data={projeto:"STILL STUDIO",enviadoEm:new Date().toISOString()};
-  ["nome","email","whats","insta","empresa","porte","oferta","prazo","origem","desafio"].forEach(function(k){data[k]=f.elements[k].value.trim()});
+  ["nome","email","whats","insta","empresa","porte","oferta","prazo","origem","desafio"].forEach(function(k){data[k]=clean(f.elements[k].value)});
+  var showDone=function(){document.getElementById("prog").hidden=true;f.hidden=true;var d=document.getElementById("done");d.hidden=false;d.focus({preventScroll:true});scrollTo({top:0,behavior:reduce?"auto":"smooth"})};
+  /* preenchido rápido demais: típico de robô; finge sucesso e não envia */
+  if(Date.now()-t0<MIN_MS){showDone();return}
+  var log=sentLog();
+  if(log.length>=MAX_HOUR||(log.length&&Date.now()-log[log.length-1]<WAIT_MS)){fe.textContent=T("Você acabou de enviar uma proposta. Aguarde alguns minutos para enviar outra.");return}
   data.servico=[].map.call(f.querySelectorAll('[name=servico]:checked'),function(c){return c.value}).join(", ");
   sending=true;next.disabled=true;prev.disabled=true;next.textContent=T("Enviando...");fe.textContent="";
-  try{await send(data);
-   document.getElementById("prog").hidden=true;f.hidden=true;var d=document.getElementById("done");d.hidden=false;d.focus({preventScroll:true});scrollTo({top:0,behavior:reduce?"auto":"smooth"})}
+  try{await send(data);logSent();showDone()}
   catch(err){console.error("Falha no envio:",err);fe.textContent=T("Não foi possível enviar sua solicitação agora. Verifique sua conexão e tente novamente.")}
   sending=false;next.disabled=false;prev.disabled=false;update()});
  update();

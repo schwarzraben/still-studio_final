@@ -1,5 +1,6 @@
-# Publica o site no GitHub Pages e gera assets/config.js a partir dos secrets do repositório.
-# Nenhum endereço ou credencial fica no código: tudo vem de Settings → Secrets and variables → Actions.
+# Publica o site no GitHub Pages. O destino do formulário vem do secret FORM_ENDPOINT
+# (Settings → Secrets and variables → Actions) e nunca fica no código.
+# Actions presas por commit (SHA) para evitar troca silenciosa de versão; o Dependabot avisa quando houver atualização.
 name: Publicar site
 
 on:
@@ -9,8 +10,6 @@ on:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
   group: pages
@@ -19,29 +18,26 @@ concurrency:
 jobs:
   publicar:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deploy.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
 
-      - name: Gerar assets/config.js a partir dos secrets
+      - name: Montar site (config, Content-Security-Policy e verificações)
         env:
           FORM_ENDPOINT: ${{ secrets.FORM_ENDPOINT }}
-        run: |
-          if [ -z "$FORM_ENDPOINT" ]; then
-            echo "::warning::Secret FORM_ENDPOINT não configurado: o formulário de proposta não vai enviar."
-          fi
-          node -e 'require("fs").writeFileSync("assets/config.js","window.STILL_CONFIG="+JSON.stringify({formEndpoint:process.env.FORM_ENDPOINT||""})+";\n")'
+        run: node tools/build.js _site
 
-      - name: Montar pasta do site
-        run: |
-          mkdir -p _site
-          rsync -a --exclude '.git' --exclude '.github' --exclude '_site' --exclude 'README.md' ./ _site/
-
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
+      - uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
         with:
           path: _site
       - id: deploy
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1
