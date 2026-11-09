@@ -12,7 +12,7 @@ Site estático (HTML/CSS/JS puro, sem build), baseado na LP de referência da ST
    troca de preto para vermelho, para claro e volta ao preto, e as formas brincam (giram, quicam, se afastam).
    Ciclo de 12 s; no computador o logo segue levemente o cursor. Arquivo do logo em `logo/Logo_Still.pdf`.
 2. **Quem somos**: palavras acendem conforme a rolagem; link para "Nossa história".
-3. **Em números**: 4 anos de estúdio, +50 projetos, +1.000 arquivos e 100% de clientes satisfeitos; contam até o valor final (`data-to`, `data-pre`, `data-suf`).
+3. **Em números**: 4 anos de estúdio, +150 projetos, +1.000 arquivos e 100% de clientes satisfeitos; contam até o valor final (`data-to`, `data-pre`, `data-suf`).
 4. **Portfólio**: "Se ainda não viu, venha ver!" + link "Portfólio completo" (troque o `href` pelo link real)
    e 10 cases que andam para o lado enquanto a seção fica presa. Cada quadro abre o projeto completo;
    o conteúdo fica no objeto `CASES` no script (os 10 cases atuais são exemplos para trocar pelos reais).
