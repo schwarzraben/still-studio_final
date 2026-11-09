@@ -171,12 +171,12 @@ textarea{min-height:9rem;resize:vertical}
     </section>
   </main>
 </div>
+<script src="../assets/config.js"></script>
 <script src="../assets/site.js"></script>
 <script>
-// Para onde vão as propostas: FormSubmit (formsubmit.co) encaminha cada envio para este e-mail.
-// Na PRIMEIRA proposta o FormSubmit manda um e-mail de ativação para esse endereço; clique em "Activate Form" uma única vez.
-var FORM_EMAIL="bystillstudio@gmail.com";
-var FORM_ENDPOINT="https://formsubmit.co/ajax/"+FORM_EMAIL;
+// Para onde vão as propostas. O endereço NÃO fica no código: vem de assets/config.js, gerado na publicação
+// pelo GitHub Actions a partir do secret FORM_ENDPOINT (veja .github/workflows/pages.yml e o README).
+var FORM_ENDPOINT=(window.STILL_CONFIG&&window.STILL_CONFIG.formEndpoint)||"";
 (function(){
  var T=(window.STILL&&window.STILL.T)||function(x){return x};
  var reduce=matchMedia("(prefers-reduced-motion:reduce)").matches;

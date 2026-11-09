@@ -38,14 +38,27 @@ Está marcada com `noindex`.
 Funciona em qualquer hospedagem estática (Vercel, Netlify, Cloudflare Pages, GitHub Pages): envie a pasta inteira.
 
 ## Propostas por e-mail
-O formulário (`proposta/index.html`) envia cada proposta para **bystillstudio@gmail.com** pelo FormSubmit
-(formsubmit.co, gratuito, sem cadastro). O e-mail chega com o assunto "Nova proposta pelo site: Nome (Empresa)",
-todos os campos organizados em tabela, e o botão "Responder" já vai para o e-mail do cliente.
-- **Ativação (uma vez só):** depois que o site estiver no ar, envie uma proposta de teste. O FormSubmit manda
-  um e-mail "Action Required: Activate Form" para bystillstudio@gmail.com; clique em **Activate Form**.
-  Até essa ativação, o formulário mostra mensagem de erro e as propostas não são entregues.
-- Para trocar o e-mail, mude `FORM_EMAIL` perto do fim de `proposta/index.html` (e ative de novo).
-- Se os e-mails não aparecerem, confira a pasta de spam e marque como "Não é spam".
+O formulário (`proposta/index.html`) envia cada proposta por e-mail pelo FormSubmit (formsubmit.co, gratuito).
+O e-mail chega com o assunto "Nova proposta pelo site: Nome (Empresa)", os campos em tabela e o "Responder"
+indo para o cliente.
+
+**Nenhum endereço fica no código.** O destino vem do secret `FORM_ENDPOINT`, que o GitHub Actions
+(`.github/workflows/pages.yml`) grava em `assets/config.js` só na hora de publicar (esse arquivo não é versionado).
+
+Configuração (uma vez):
+1. **Settings → Pages → Build and deployment → Source:** escolha **GitHub Actions**.
+2. **Settings → Secrets and variables → Actions → New repository secret:**
+   nome `FORM_ENDPOINT`, valor `https://formsubmit.co/ajax/SEU-EMAIL` (o e-mail que vai receber as propostas).
+3. Em **Actions**, rode "Publicar site" (ou faça qualquer push no `main`).
+4. Envie uma proposta de teste pelo site. O FormSubmit manda "Action Required: Activate Form" para o e-mail;
+   clique em **Activate Form**.
+5. Para o e-mail não aparecer nem no navegador: o FormSubmit envia um **endereço alternativo** (sequência de letras).
+   Troque o secret para `https://formsubmit.co/ajax/ENDEREÇO-ALTERNATIVO` e publique de novo.
+
+Testes locais: crie `assets/config.js` com `window.STILL_CONFIG={formEndpoint:"..."}` (ele é ignorado pelo git).
+
+Atenção: tudo o que o navegador usa para enviar o formulário é visível para quem inspecionar a página.
+Por isso o site não usa nenhuma chave secreta; o endereço alternativo do FormSubmit é feito para ficar público.
 
 ## HTTPS
 - No GitHub Pages (`*.github.io`) o site é servido só por HTTPS, e o próprio GitHub redireciona HTTP para HTTPS.
@@ -56,6 +69,6 @@ todos os campos organizados em tabela, e o botão "Responder" já vai para o e-m
   marque **Enforce HTTPS** e troque o endereço de `og:image` em `index.html` e `proposta/index.html`.
 
 ## ANTES de divulgar
-1. Fazer a ativação do FormSubmit descrita acima.
+1. Configurar o secret `FORM_ENDPOINT` e ativar o FormSubmit (passos acima).
 2. Pré-visualização em redes sociais: `og:image` já aponta para
    `https://schwarzraben.github.io/still-studio_final/og.png`; troque se o site mudar de endereço.
