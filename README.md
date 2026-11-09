@@ -47,7 +47,15 @@ todos os campos organizados em tabela, e o botão "Responder" já vai para o e-m
 - Para trocar o e-mail, mude `FORM_EMAIL` perto do fim de `proposta/index.html` (e ative de novo).
 - Se os e-mails não aparecerem, confira a pasta de spam e marque como "Não é spam".
 
+## HTTPS
+- No GitHub Pages (`*.github.io`) o site é servido só por HTTPS, e o próprio GitHub redireciona HTTP para HTTPS.
+- Reforço nas páginas: todas carregam a regra `upgrade-insecure-requests` e um redirecionamento imediato de
+  `http://` para `https://` no mesmo endereço (fica de fora só o teste local em `localhost`).
+- Todos os recursos externos (fontes do Google e FormSubmit) usam HTTPS.
+- Se usar domínio próprio: em **Settings → Pages → Custom domain**, depois que o certificado for emitido,
+  marque **Enforce HTTPS** e troque o endereço de `og:image` em `index.html` e `proposta/index.html`.
+
 ## ANTES de divulgar
 1. Fazer a ativação do FormSubmit descrita acima.
-2. Pré-visualização em redes sociais: em `index.html` e `proposta/index.html`, troque
-   `content="/og.png"` pela URL completa, ex.: `content="https://seudominio.com.br/og.png"`.
+2. Pré-visualização em redes sociais: `og:image` já aponta para
+   `https://schwarzraben.github.io/still-studio_final/og.png`; troque se o site mudar de endereço.
