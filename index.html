@@ -148,30 +148,42 @@ section{padding-block:clamp(4rem,9vw,7.5rem);position:relative}
 .num span{display:block;color:var(--muted);font-size:.95rem;margin-top:.3rem;max-width:30ch}
 
 /* ===== portfólio: faixa horizontal presa enquanto a página rola ===== */
-.hs{padding:0}
-.hs-pin{position:sticky;top:0;height:100svh;display:flex;flex-direction:column;justify-content:center;gap:clamp(1.4rem,3vw,2.2rem);overflow:hidden}
-.hs-pin>.w{width:100%}
-.hs-h{display:flex;justify-content:space-between;align-items:end;gap:1rem 2rem;flex-wrap:wrap}
-.hs-h h2{font-size:clamp(2.4rem,6.4vw,5.6rem);font-weight:500;letter-spacing:-.045em;max-width:14ch}
-.hs-h .sub{display:inline-flex;align-items:center;gap:.6rem;margin-top:1rem;font:500 clamp(1.05rem,1.6vw,1.3rem) var(--b);color:var(--muted);text-decoration:none}
-.hs-h .sub i{font-style:normal;display:grid;place-items:center;width:1.8rem;height:1.8rem;border-radius:50%;background:var(--ink);color:var(--bg);font-size:.85rem;transition:transform .4s var(--spring)}
-.hs-h .sub:hover{color:var(--ink)}.hs-h .sub:hover i{transform:rotate(-45deg)}
-.count{font:500 .95rem var(--b);color:var(--muted);font-variant-numeric:tabular-nums}.count b{color:var(--ink);font-weight:600}
-.track{display:flex;gap:clamp(.8rem,1.4vw,1.2rem);padding-left:max(clamp(1.25rem,4vw,3rem),calc((100vw - 1240px)/2 + 3rem));width:max-content;will-change:transform}
-.pc{margin:0;flex:none;width:clamp(240px,24vw,360px)}
-.front{position:relative;display:block;width:100%;aspect-ratio:3/4;max-height:58svh;border-radius:22px;overflow:hidden;padding:0;border:0;cursor:pointer;text-align:left;font:inherit;color:var(--paper-ink);
- background:radial-gradient(circle,rgba(5,7,7,.13) 1px,transparent 1.2px) 0 0/18px 18px,var(--paper)}
-.pc.dk .front{color:var(--on-dark);background:radial-gradient(circle,rgba(255,255,255,.1) 1px,transparent 1.2px) 0 0/18px 18px,var(--dark-2)}
-.front svg{position:absolute;inset:0 0 18% 0;width:100%;height:82%;transition:transform .8s var(--spring)}
-.front:hover svg{transform:scale(1.05) rotate(-1deg)}
-.front .cap{position:absolute;left:1rem;right:1rem;bottom:1rem;display:flex;justify-content:space-between;align-items:end;gap:.8rem}
-.front .cap b{display:block;font:600 1.2rem/1.1 var(--d);letter-spacing:-.02em}
-.front .cap small{display:block;font-size:.85rem;opacity:.6;margin-top:.25rem}
-.front .plus{flex:none;display:grid;place-items:center;width:2.6rem;height:2.6rem;border-radius:50%;background:var(--accent);color:var(--on-dark);font-size:1.4rem;line-height:1;transition:transform .45s var(--spring)}
-.front:hover .plus{transform:rotate(90deg) scale(1.1)}
-.front .no{position:absolute;left:1rem;top:1rem;font:600 .8rem var(--b);opacity:.55;font-variant-numeric:tabular-nums}
-.hs-bar{height:2px;background:var(--line);border-radius:2px;overflow:hidden}
-.hs-bar i{display:block;height:100%;background:var(--accent);transform-origin:0 50%;transform:scaleX(var(--hp,0))}
+/* portfólio em lista: uma linha por projeto; no computador, uma prévia segue o cursor */
+.pf .head{display:flex;justify-content:space-between;align-items:end;gap:1rem 2rem;flex-wrap:wrap;margin-bottom:clamp(2rem,5vw,3.5rem)}
+.pf h2{font-size:clamp(2.4rem,6.4vw,5.6rem);font-weight:500;letter-spacing:-.045em;max-width:14ch}
+.pf .sub{display:inline-flex;align-items:center;gap:.6rem;margin-top:1rem;font:500 clamp(1.05rem,1.6vw,1.3rem) var(--b);color:var(--muted);text-decoration:none}
+.pf .sub i{font-style:normal;display:grid;place-items:center;width:1.8rem;height:1.8rem;border-radius:50%;background:var(--ink);color:var(--bg);font-size:.85rem;transition:transform .4s var(--spring)}
+.pf .sub:hover{color:var(--ink)}.pf .sub:hover i{transform:rotate(-45deg)}
+.count{font:500 .95rem var(--b);color:var(--muted)}
+.plist{list-style:none;margin:0;padding:0;border-top:1.5px solid var(--ink)}
+.pc{margin:0;border-bottom:1px solid var(--line)}
+.front{position:relative;overflow:hidden;width:100%;display:grid;grid-template-columns:3rem 1fr auto;align-items:center;gap:1rem clamp(1rem,3vw,2.5rem);padding:clamp(1.1rem,2.2vw,1.7rem) clamp(.4rem,1.2vw,1rem);background:none;border:0;color:var(--ink);font:inherit;text-align:left;cursor:pointer}
+.front::before{content:"";position:absolute;inset:0;background:var(--black);transform:scaleY(0);transform-origin:50% 100%;transition:transform .55s var(--ease)}
+.front:hover::before,.front:focus-visible::before{transform:scaleY(1)}
+.front>*{position:relative;transition:color .3s,transform .55s var(--spring)}
+.front:hover>*,.front:focus-visible>*{color:#fff}
+.front .no{font:600 .85rem var(--b);color:var(--accent);font-variant-numeric:tabular-nums}
+.front .tx{display:flex;align-items:baseline;justify-content:space-between;gap:.3rem 1.5rem;flex-wrap:wrap;min-width:0}
+.front .nm{font:500 clamp(1.5rem,3.6vw,3rem)/1.05 var(--d);letter-spacing:-.035em}
+.front:hover .nm,.front:focus-visible .nm{transform:translateX(.7rem)}
+.front .ct{color:var(--muted);font-size:.95rem;transition:color .3s}
+.front:hover .ct,.front:focus-visible .ct{color:rgba(255,255,255,.7)}
+.front .ar{display:grid;place-items:center;width:2.6rem;height:2.6rem;border-radius:50%;border:1px solid var(--line);transition:background .3s,border-color .3s,transform .5s var(--spring)}
+.front:hover .ar,.front:focus-visible .ar{background:var(--accent);border-color:var(--accent);transform:rotate(45deg)}
+.front .th{display:none}
+@media(hover:none),(max-width:760px){
+ .front{grid-template-columns:auto 1fr auto}
+ .front .no{display:none}
+ .front .th{display:block;width:clamp(4.2rem,20vw,5.5rem);aspect-ratio:5/4;border-radius:10px;overflow:hidden;color:var(--paper-ink);background:radial-gradient(circle,rgba(5,7,7,.13) 1px,transparent 1.2px) 0 0/10px 10px,var(--paper)}
+ .front .th svg{display:block;width:100%;height:100%}
+ .front .tx{flex-direction:column;align-items:flex-start}
+ .front .ct{font-size:.85rem}
+}
+.pprev{position:fixed;left:0;top:0;z-index:30;width:clamp(260px,26vw,380px);aspect-ratio:5/4;border-radius:18px;overflow:hidden;pointer-events:none;color:var(--paper-ink);
+ background:radial-gradient(circle,rgba(5,7,7,.13) 1px,transparent 1.2px) 0 0/18px 18px,var(--paper);box-shadow:0 30px 60px -20px rgba(0,0,0,.45);
+ transform:translate(var(--x,0),var(--y,0)) translate(28px,-50%) scale(var(--s,0)) rotate(var(--rt,0deg))}
+.pprev svg{display:block;width:100%;height:100%}
+@media(hover:none),(pointer:coarse),(max-width:760px){.pprev{display:none}}
 
 /* ===== chamada: criar juntos ===== */
 .together{padding:0;margin:var(--gut);border-radius:var(--rad);background:var(--accent);color:var(--on-dark);overflow:hidden}
@@ -258,7 +270,7 @@ section{padding-block:clamp(4rem,9vw,7.5rem);position:relative}
 .hf{opacity:1}.nt{font:500 13px var(--b);fill:currentColor;opacity:.55}
 .js .sk{stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.6s cubic-bezier(.5,0,.2,1) calc(.25s + var(--k,0)*.18s)}
 .js .hf,.js .nt{opacity:0;transition:opacity .8s ease calc(1.2s + var(--k,0)*.18s)}
-.js .pc.in .sk,.js .case.in .sk{stroke-dashoffset:0}.js .pc.in .hf,.js .case.in .hf{opacity:1}.js .pc.in .nt,.js .case.in .nt{opacity:.55}
+.js .pc.in .sk,.js .case.in .sk,.js .pprev .sk{stroke-dashoffset:0}.js .pc.in .hf,.js .case.in .hf,.js .pprev .hf{opacity:1}.js .pc.in .nt,.js .case.in .nt,.js .pprev .nt{opacity:.55}
 
 /* projeto aberto: o quadro clicado se expande até ocupar a tela */
 .case{position:fixed;inset:0;z-index:50;background:var(--bg);overflow-y:auto;overscroll-behavior:contain;
@@ -312,7 +324,6 @@ body.lock{overflow:hidden}
  .js .sk{stroke-dashoffset:0!important}.js .hf,.js .nt{opacity:1!important}
  .js .big span{transform:none!important}
  .slot span{transform:none!important;opacity:0}.slot span:first-child{opacity:1}
- .hs{height:auto!important}.hs-pin{position:static;height:auto;padding-block:4rem}.track{overflow-x:auto;width:auto;padding-right:1.25rem;transform:none!important}
 }
 </style>
 </head>
@@ -359,28 +370,28 @@ body.lock{overflow:hidden}
   </div>
 </div></section>
 
-<section class="hs" id="portfolio"><div class="hs-pin">
-  <div class="w hs-h"><div><span class="tag" data-rv>Portfólio</span><h2 data-split>Se ainda não viu, venha ver!</h2>
+<section class="pf" id="portfolio"><div class="w">
+  <div class="head"><div><span class="tag" data-rv>Portfólio</span><h2 data-split>Se ainda não viu, venha ver!</h2>
     <!-- PORTFÓLIO COMPLETO: troque o href pelo link do portfólio completo (Behance, Instagram, PDF...) -->
     <a class="sub" href="#portfolio" data-rv>Portfólio completo <i>↗</i></a></div>
-    <p class="count" data-rv><b id="pcNow">01</b> / 10 · role para o lado</p></div>
-  <div class="track" id="track">
-    <figure class="pc"><button class="front" type="button" data-case="0" aria-haspopup="dialog"><svg viewBox="0 0 500 400" preserveAspectRatio="xMidYMid meet" aria-hidden="true" filter="url(#pencil)"><g class="t"><path class="sk t" pathLength="1" d="M50 200H450M250 40V360M120 70L380 330M380 70L120 330"/></g>
+    <p class="count" data-rv>10 projetos · clique para abrir</p></div>
+  <ol class="plist" id="plist">
+    <li class="pc" data-rv><button class="front" type="button" data-case="0" aria-haspopup="dialog"><span class="no">01</span><span class="th" aria-hidden="true"><svg viewBox="0 0 500 400" preserveAspectRatio="xMidYMid meet" aria-hidden="true" filter="url(#pencil)"><g class="t"><path class="sk t" pathLength="1" d="M50 200H450M250 40V360M120 70L380 330M380 70L120 330"/></g>
 <circle class="sk" style="--k:1" pathLength="1" cx="250" cy="200" r="125"/>
 <circle class="sk t" style="--k:1" pathLength="1" cx="250" cy="200" r="72"/>
 <circle class="hf" cx="250" cy="200" r="72" fill="url(#hatch)" />
 <path class="sk r" style="--k:2" pathLength="1" stroke-width="16" d="M296 146C276 118 212 118 210 158C208 196 290 192 290 236C290 280 220 286 202 254"/>
 <path class="sk" style="--k:3" pathLength="1" d="M375 75l26-26M401 49l14 40M401 49l-40 14"/>
-<text class="nt" x="64" y="70">ø 250 · grid 8pt</text><text class="nt" x="64" y="372">símbolo v.03</text></svg><span class="no" aria-hidden="true">01</span><span class="cap"><span><b>Branding e identidade visual</b><small>Marca</small></span><span class="plus" aria-hidden="true">+</span></span><span class="sr">Abrir projeto</span></button></figure>
-    <figure class="pc dk"><button class="front" type="button" data-case="1" aria-haspopup="dialog"><svg viewBox="0 0 500 400" preserveAspectRatio="xMidYMid meet" aria-hidden="true" filter="url(#pencil)"><rect class="sk" pathLength="1" x="172" y="36" width="156" height="328" rx="26"/>
+<text class="nt" x="64" y="70">ø 250 · grid 8pt</text><text class="nt" x="64" y="372">símbolo v.03</text></svg></span><span class="tx"><span class="nm">Branding e identidade visual</span><span class="ct">Marca</span></span><span class="ar" aria-hidden="true">↗</span><span class="sr">Abrir projeto</span></button></li>
+    <li class="pc" data-rv><button class="front" type="button" data-case="1" aria-haspopup="dialog"><span class="no">02</span><span class="th" aria-hidden="true"><svg viewBox="0 0 500 400" preserveAspectRatio="xMidYMid meet" aria-hidden="true" filter="url(#pencil)"><rect class="sk" pathLength="1" x="172" y="36" width="156" height="328" rx="26"/>
 <path class="sk" style="--k:1" pathLength="1" d="M230 58H270"/>
 <path class="sk" style="--k:2" pathLength="1" d="M190 100h36v36h-36zM232 100h36v36h-36zM274 100h36v36h-36zM190 142h36v36h-36zM232 142h36v36h-36zM274 142h36v36h-36zM190 184h36v36h-36zM232 184h36v36h-36zM274 184h36v36h-36z"/>
 <rect class="hf" x="232" y="142" width="36" height="36" fill="url(#hatch)"/>
 <path class="sk t" style="--k:3" pathLength="1" d="M190 250H310M190 272H280M190 294H296"/>
 <path class="sk r" style="--k:3" pathLength="1" d="M392 150c-22-16-40-30-40-48 0-14 10-22 21-22 9 0 15 6 19 12 4-6 10-12 19-12 11 0 21 8 21 22 0 18-18 32-40 48z"/>
 <path class="sk" style="--k:4" pathLength="1" d="M58 236c0-22 18-36 44-36s44 14 44 36-18 36-44 36c-6 0-12-1-17-3l-21 13 5-20c-7-7-11-16-11-26z"/>
-<text class="nt" x="352" y="186">+ 1,2 mil</text><text class="nt" x="64" y="306">comentários</text></svg><span class="no" aria-hidden="true">02</span><span class="cap"><span><b>Social media</b><small>Direção de arte</small></span><span class="plus" aria-hidden="true">+</span></span><span class="sr">Abrir projeto</span></button></figure>
-    <figure class="pc"><button class="front" type="button" data-case="2" aria-haspopup="dialog"><svg viewBox="0 0 500 400" preserveAspectRatio="xMidYMid meet" aria-hidden="true" filter="url(#pencil)"><path class="sk" pathLength="1" d="M48 318H452"/>
+<text class="nt" x="352" y="186">+ 1,2 mil</text><text class="nt" x="64" y="306">comentários</text></svg></span><span class="tx"><span class="nm">Social media</span><span class="ct">Direção de arte</span></span><span class="ar" aria-hidden="true">↗</span><span class="sr">Abrir projeto</span></button></li>
+    <li class="pc" data-rv><button class="front" type="button" data-case="2" aria-haspopup="dialog"><span class="no">03</span><span class="th" aria-hidden="true"><svg viewBox="0 0 500 400" preserveAspectRatio="xMidYMid meet" aria-hidden="true" filter="url(#pencil)"><path class="sk" pathLength="1" d="M48 318H452"/>
 <path class="sk t" style="--k:1" pathLength="1" stroke-dasharray="6 8" d="M78 96Q128 96 156 306Q206 160 256 306Q292 214 330 306Q358 262 392 306"/>
 <circle class="sk r" style="--k:2" pathLength="1" cx="78" cy="96" r="24"/>
 <circle class="hf" cx="78" cy="96" r="24" fill="url(#hatch)"/>
@@ -389,8 +400,8 @@ body.lock{overflow:hidden}
 <ellipse class="sk" style="--k:4" pathLength="1" cx="256" cy="307" rx="27" ry="11"/>
 <circle class="sk r" style="--k:5" pathLength="1" cx="420" cy="294" r="22"/>
 <path class="sk" style="--k:5" pathLength="1" d="M60 362H440M78 354l8 8-8 8-8-8zM156 354l8 8-8 8-8-8zM256 354l8 8-8 8-8-8zM330 354l8 8-8 8-8-8zM420 354l8 8-8 8-8-8z"/>
-<text class="nt" x="104" y="74">ease out · 24 fps</text></svg><span class="no" aria-hidden="true">03</span><span class="cap"><span><b>Motion design</b><small>Animação</small></span><span class="plus" aria-hidden="true">+</span></span><span class="sr">Abrir projeto</span></button></figure>
-    <figure class="pc dk"><button class="front" type="button" data-case="3" aria-haspopup="dialog"><svg viewBox="0 0 500 400" preserveAspectRatio="xMidYMid meet" aria-hidden="true" filter="url(#pencil)"><g transform="rotate(-3 250 200)">
+<text class="nt" x="104" y="74">ease out · 24 fps</text></svg></span><span class="tx"><span class="nm">Motion design</span><span class="ct">Animação</span></span><span class="ar" aria-hidden="true">↗</span><span class="sr">Abrir projeto</span></button></li>
+    <li class="pc" data-rv><button class="front" type="button" data-case="3" aria-haspopup="dialog"><span class="no">04</span><span class="th" aria-hidden="true"><svg viewBox="0 0 500 400" preserveAspectRatio="xMidYMid meet" aria-hidden="true" filter="url(#pencil)"><g transform="rotate(-3 250 200)">
 <rect class="sk" pathLength="1" x="140" y="46" width="220" height="300" rx="3"/>
 <circle class="sk r" style="--k:1" pathLength="1" cx="250" cy="148" r="62"/>
 <circle class="hf" cx="250" cy="148" r="62" fill="url(#hatch)"/>
@@ -399,40 +410,40 @@ body.lock{overflow:hidden}
 <path class="sk t" style="--k:1" pathLength="1" stroke-width="10" d="M120 56l52-22M328 34l52 22"/>
 </g>
 <path class="sk r" style="--k:4" pathLength="1" d="M410 96v36M392 114h36M397 101l26 26M423 101l-26 26"/>
-<text class="nt" x="60" y="380">50 × 70 cm · serigrafia</text></svg><span class="no" aria-hidden="true">04</span><span class="cap"><span><b>Identidade para projetos culturais</b><small>Cartaz</small></span><span class="plus" aria-hidden="true">+</span></span><span class="sr">Abrir projeto</span></button></figure>
-    <figure class="pc"><button class="front" type="button" data-case="4" aria-haspopup="dialog"><svg viewBox="0 0 500 400" preserveAspectRatio="xMidYMid meet" aria-hidden="true" filter="url(#pencil)"><path class="sk" pathLength="1" d="M150 140L250 100L370 140L270 185Z"/>
+<text class="nt" x="60" y="380">50 × 70 cm · serigrafia</text></svg></span><span class="tx"><span class="nm">Identidade para projetos culturais</span><span class="ct">Cartaz</span></span><span class="ar" aria-hidden="true">↗</span><span class="sr">Abrir projeto</span></button></li>
+    <li class="pc" data-rv><button class="front" type="button" data-case="4" aria-haspopup="dialog"><span class="no">05</span><span class="th" aria-hidden="true"><svg viewBox="0 0 500 400" preserveAspectRatio="xMidYMid meet" aria-hidden="true" filter="url(#pencil)"><path class="sk" pathLength="1" d="M150 140L250 100L370 140L270 185Z"/>
 <path class="sk" style="--k:1" pathLength="1" d="M150 140V300L270 345V185M370 140V295L270 345"/>
 <circle class="hf" cx="212" cy="245" r="32" fill="url(#hatch)"/><circle class="sk r" style="--k:2" pathLength="1" cx="212" cy="245" r="32"/>
 <path class="sk" style="--k:3" pathLength="1" d="M292 212l56-22M292 236l42-16"/>
-<text class="nt" x="60" y="380">caixa 12 × 12 × 18 cm</text></svg><span class="no" aria-hidden="true">05</span><span class="cap"><span><b>Embalagem</b><small>Packaging</small></span><span class="plus" aria-hidden="true">+</span></span><span class="sr">Abrir projeto</span></button></figure>
-    <figure class="pc dk"><button class="front" type="button" data-case="5" aria-haspopup="dialog"><svg viewBox="0 0 500 400" preserveAspectRatio="xMidYMid meet" aria-hidden="true" filter="url(#pencil)"><path class="sk" pathLength="1" d="M190 70l-70 40 25 60 35-18V340h140V152l35 18 25-60-70-40c-10 25-30 38-60 38s-50-13-60-38z"/>
+<text class="nt" x="60" y="380">caixa 12 × 12 × 18 cm</text></svg></span><span class="tx"><span class="nm">Embalagem</span><span class="ct">Packaging</span></span><span class="ar" aria-hidden="true">↗</span><span class="sr">Abrir projeto</span></button></li>
+    <li class="pc" data-rv><button class="front" type="button" data-case="5" aria-haspopup="dialog"><span class="no">06</span><span class="th" aria-hidden="true"><svg viewBox="0 0 500 400" preserveAspectRatio="xMidYMid meet" aria-hidden="true" filter="url(#pencil)"><path class="sk" pathLength="1" d="M190 70l-70 40 25 60 35-18V340h140V152l35 18 25-60-70-40c-10 25-30 38-60 38s-50-13-60-38z"/>
 <path class="sk r" style="--k:1" pathLength="1" stroke-width="9" d="M196 160v170M304 160v170"/>
 <text class="hf" x="250" y="280" text-anchor="middle" font-family="Bricolage Grotesque,Arial Black,sans-serif" font-weight="800" font-size="86" fill="currentColor">10</text>
-<text class="nt" x="60" y="385">uniforme · temporada 2026</text></svg><span class="no" aria-hidden="true">06</span><span class="cap"><span><b>Identidade esportiva</b><small>Esporte</small></span><span class="plus" aria-hidden="true">+</span></span><span class="sr">Abrir projeto</span></button></figure>
-    <figure class="pc"><button class="front" type="button" data-case="6" aria-haspopup="dialog"><svg viewBox="0 0 500 400" preserveAspectRatio="xMidYMid meet" aria-hidden="true" filter="url(#pencil)"><rect class="sk" pathLength="1" x="80" y="60" width="340" height="250" rx="10"/>
+<text class="nt" x="60" y="385">uniforme · temporada 2026</text></svg></span><span class="tx"><span class="nm">Identidade esportiva</span><span class="ct">Esporte</span></span><span class="ar" aria-hidden="true">↗</span><span class="sr">Abrir projeto</span></button></li>
+    <li class="pc" data-rv><button class="front" type="button" data-case="6" aria-haspopup="dialog"><span class="no">07</span><span class="th" aria-hidden="true"><svg viewBox="0 0 500 400" preserveAspectRatio="xMidYMid meet" aria-hidden="true" filter="url(#pencil)"><rect class="sk" pathLength="1" x="80" y="60" width="340" height="250" rx="10"/>
 <path class="sk" style="--k:1" pathLength="1" d="M80 95H420M102 78h0M118 78h0M134 78h0"/>
 <rect class="hf" x="105" y="115" width="290" height="110" fill="url(#hatch)"/><path class="sk r" style="--k:2" pathLength="1" d="M105 115h290v110H105z"/>
 <path class="sk" style="--k:3" pathLength="1" d="M105 250h150M105 272h100"/>
 <path class="sk" style="--k:4" pathLength="1" d="M330 255l40 95 14-38 38-14z"/>
-<text class="nt" x="80" y="385">banner · stories · anúncios</text></svg><span class="no" aria-hidden="true">07</span><span class="cap"><span><b>Campanha digital</b><small>Campanha</small></span><span class="plus" aria-hidden="true">+</span></span><span class="sr">Abrir projeto</span></button></figure>
-    <figure class="pc dk"><button class="front" type="button" data-case="7" aria-haspopup="dialog"><svg viewBox="0 0 500 400" preserveAspectRatio="xMidYMid meet" aria-hidden="true" filter="url(#pencil)"><path class="sk" pathLength="1" d="M250 50V360M200 360h100"/>
+<text class="nt" x="80" y="385">banner · stories · anúncios</text></svg></span><span class="tx"><span class="nm">Campanha digital</span><span class="ct">Campanha</span></span><span class="ar" aria-hidden="true">↗</span><span class="sr">Abrir projeto</span></button></li>
+    <li class="pc" data-rv><button class="front" type="button" data-case="7" aria-haspopup="dialog"><span class="no">08</span><span class="th" aria-hidden="true"><svg viewBox="0 0 500 400" preserveAspectRatio="xMidYMid meet" aria-hidden="true" filter="url(#pencil)"><path class="sk" pathLength="1" d="M250 50V360M200 360h100"/>
 <rect class="hf" x="250" y="90" width="140" height="60" fill="url(#hatch)"/><path class="sk r" style="--k:1" pathLength="1" d="M250 90h140l30 30-30 30H250z"/>
 <path class="sk" style="--k:2" pathLength="1" d="M250 180H110l-30 30 30 30h140z"/>
 <path class="sk t" style="--k:3" pathLength="1" d="M120 210h100M290 120h70"/>
-<text class="nt" x="300" y="300">placa A · 60 cm</text></svg><span class="no" aria-hidden="true">08</span><span class="cap"><span><b>Sinalização de espaço</b><small>Wayfinding</small></span><span class="plus" aria-hidden="true">+</span></span><span class="sr">Abrir projeto</span></button></figure>
-    <figure class="pc"><button class="front" type="button" data-case="8" aria-haspopup="dialog"><svg viewBox="0 0 500 400" preserveAspectRatio="xMidYMid meet" aria-hidden="true" filter="url(#pencil)"><rect class="sk" pathLength="1" x="50" y="120" width="400" height="160" rx="6"/>
+<text class="nt" x="300" y="300">placa A · 60 cm</text></svg></span><span class="tx"><span class="nm">Sinalização de espaço</span><span class="ct">Wayfinding</span></span><span class="ar" aria-hidden="true">↗</span><span class="sr">Abrir projeto</span></button></li>
+    <li class="pc" data-rv><button class="front" type="button" data-case="8" aria-haspopup="dialog"><span class="no">09</span><span class="th" aria-hidden="true"><svg viewBox="0 0 500 400" preserveAspectRatio="xMidYMid meet" aria-hidden="true" filter="url(#pencil)"><rect class="sk" pathLength="1" x="50" y="120" width="400" height="160" rx="6"/>
 <path class="sk t" style="--k:1" pathLength="1" d="M50 145h400M50 255h400M70 132h0M100 132h0M130 132h0M160 132h0M190 132h0M220 132h0M250 132h0M280 132h0M310 132h0M340 132h0M370 132h0M400 132h0M430 132h0M70 268h0M100 268h0M130 268h0M160 268h0M190 268h0M220 268h0M250 268h0M280 268h0M310 268h0M340 268h0M370 268h0M400 268h0M430 268h0"/>
 <path class="sk" style="--k:2" pathLength="1" d="M180 145v110M320 145v110"/>
 <path class="hf" d="M232 175v50l42-25z" fill="url(#hatch)"/><path class="sk r" style="--k:3" pathLength="1" d="M232 175v50l42-25z"/>
-<text class="nt" x="50" y="320">00:00 → 00:08 · 1920 × 1080</text></svg><span class="no" aria-hidden="true">09</span><span class="cap"><span><b>Vinheta de abertura</b><small>Motion</small></span><span class="plus" aria-hidden="true">+</span></span><span class="sr">Abrir projeto</span></button></figure>
-    <figure class="pc dk"><button class="front" type="button" data-case="9" aria-haspopup="dialog"><svg viewBox="0 0 500 400" preserveAspectRatio="xMidYMid meet" aria-hidden="true" filter="url(#pencil)"><path class="sk" pathLength="1" d="M250 90C210 70 140 70 80 85V320C140 305 210 305 250 325C290 305 360 305 420 320V85C360 70 290 70 250 90V325"/>
+<text class="nt" x="50" y="320">00:00 → 00:08 · 1920 × 1080</text></svg></span><span class="tx"><span class="nm">Vinheta de abertura</span><span class="ct">Motion</span></span><span class="ar" aria-hidden="true">↗</span><span class="sr">Abrir projeto</span></button></li>
+    <li class="pc" data-rv><button class="front" type="button" data-case="9" aria-haspopup="dialog"><span class="no">10</span><span class="th" aria-hidden="true"><svg viewBox="0 0 500 400" preserveAspectRatio="xMidYMid meet" aria-hidden="true" filter="url(#pencil)"><path class="sk" pathLength="1" d="M250 90C210 70 140 70 80 85V320C140 305 210 305 250 325C290 305 360 305 420 320V85C360 70 290 70 250 90V325"/>
 <rect class="hf" x="275" y="110" width="120" height="90" fill="url(#hatch)"/><path class="sk r" style="--k:1" pathLength="1" d="M275 110h120v90H275z"/>
 <path class="sk" style="--k:2" pathLength="1" d="M105 120h115M105 145h95M105 170h110M105 195h80M105 240h115M105 265h90"/>
 <path class="sk t" style="--k:3" pathLength="1" d="M275 230h120M275 255h90"/>
-<text class="nt" x="80" y="372">cardápio · 16 páginas</text></svg><span class="no" aria-hidden="true">10</span><span class="cap"><span><b>Cardápio e impressos</b><small>Editorial</small></span><span class="plus" aria-hidden="true">+</span></span><span class="sr">Abrir projeto</span></button></figure>
-  </div>
-  <div class="w"><div class="hs-bar" aria-hidden="true"><i id="hsBar"></i></div></div>
+<text class="nt" x="80" y="372">cardápio · 16 páginas</text></svg></span><span class="tx"><span class="nm">Cardápio e impressos</span><span class="ct">Editorial</span></span><span class="ar" aria-hidden="true">↗</span><span class="sr">Abrir projeto</span></button></li>
+  </ol>
 </div></section>
+<div class="pprev" id="pprev" aria-hidden="true"></div>
 
 <section class="together"><div class="w">
   <div><h2 data-split>Bora criar um projeto <em>juntos?</em></h2><p data-rv>Conte a sua ideia no formulário. A gente responde com os próximos passos e uma proposta feita para o seu projeto.</p></div>
@@ -512,10 +523,10 @@ body.lock{overflow:hidden}
  function stagger(){var g=new Map();$("[data-rv]").forEach(function(el){var p=el.parentNode,n=g.get(p)||0;g.set(p,n+1);el.style.setProperty("--dl",Math.min(n,8)*0.09+"s")})}
  var io=("IntersectionObserver" in window)?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var t=e.target;t.classList.add("in");t.dataset.seen=1;if(t.classList.contains("num"))count(t);io.unobserve(t)}})},{threshold:.15,rootMargin:"0px 0px -8% 0px"}):null;
  function observe(){$("[data-rv]:not(.in),.pc,#bigmark").forEach(function(el){io?io.observe(el):el.classList.add("in")})}
- function init(){doSplits();stagger();observe();sizeHs();frame()}
+ function init(){doSplits();stagger();observe();frame()}
  if(reduce){$("[data-rv],.pc,#bigmark").forEach(function(e){e.classList.add("in")});mfw.forEach(function(w){w.classList.add("lit")})}
  if(document.fonts&&document.fonts.ready){document.fonts.ready.then(init)}else{init()}
- var rt;addEventListener("resize",function(){clearTimeout(rt);rt=setTimeout(function(){doSplits();sizeHs();frame()},200)});
+ var rt;addEventListener("resize",function(){clearTimeout(rt);rt=setTimeout(function(){doSplits();frame()},200)});
 
  function count(el){var b=el.querySelector("b"),to=+b.dataset.to,suf=b.dataset.suf||"",pre=b.dataset.pre||"";if(reduce||!to)return;var t0=null,f=function(n){return pre+n.toLocaleString("pt-BR")+suf};b.textContent=f(0);
   (function step(t){if(!t0)t0=t;var k=Math.min(1,(t-t0)/1600),e=1-Math.pow(1-k,4);b.textContent=f(Math.round(to*e));if(k<1)requestAnimationFrame(step)})(performance.now())}
@@ -525,8 +536,6 @@ body.lock{overflow:hidden}
  if(fine&&!reduce)hero.addEventListener("mousemove",function(e){var r=hero.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;la.style.setProperty("--mx",(x*30)+"px");la.style.setProperty("--my",(y*24)+"px")});
 
  /* portfólio na horizontal */
- var hs=document.getElementById("portfolio"),track=document.getElementById("track"),bar=document.getElementById("hsBar"),pcNow=document.getElementById("pcNow"),cards=$(".pc",track),dist=0;
- function sizeHs(){if(reduce)return;dist=Math.max(0,track.scrollWidth-innerWidth+Math.min(innerWidth*.08,80));hs.style.height=(innerHeight+dist)+"px"}
 
  /* efeitos ligados à rolagem */
  var fnav=document.getElementById("fnav"),prog=document.querySelector(".prog"),rows=$(".row"),talk=document.getElementById("contato"),
@@ -542,8 +551,6 @@ body.lock{overflow:hidden}
   if(reduce)return;
   if(y<hh)la.style.setProperty("--hs",(1-clamp(y/hh)*.25).toFixed(3));
   var r=mf.getBoundingClientRect(),pr=clamp((vh*.85-r.top)/(r.height+vh*.3)),lit=Math.round(pr*mfw.length);mfw.forEach(function(w,i){w.classList.toggle("lit",i<lit)});
-  var hr=hs.getBoundingClientRect(),hp=clamp(-hr.top/Math.max(1,hr.height-vh));track.style.transform="translate3d("+(-hp*dist)+"px,0,0)";bar.style.setProperty("--hp",hp.toFixed(3));
-  pcNow.textContent=String(Math.min(cards.length,1+Math.round(hp*(cards.length-1)))).padStart(2,"0");
   rows.forEach(function(rw){var rr=rw.getBoundingClientRect();if(rr.bottom<-200||rr.top>vh+200)return;var q=(vh-rr.top)/(vh+rr.height),d=+rw.dataset.dir,span=rw.scrollWidth-innerWidth;rw.style.transform="translate3d("+(d<0?-q*span*SV_SPEED:-(1-q)*span*SV_SPEED)+"px,0,0)"});
  }
  function onScroll(){if(!ticking){ticking=true;requestAnimationFrame(frame)}}
@@ -656,7 +663,20 @@ body.lock{overflow:hidden}
  }
  fronts.forEach(function(f){f.addEventListener("click",function(){open(+f.dataset.case)})});
  /* teclado: ao focar um quadro, a página rola até a faixa mostrar esse quadro */
- fronts.forEach(function(f,k){f.addEventListener("focus",function(){if(reduce||cur>-1)return;var top=hs.getBoundingClientRect().top+scrollY,span=hs.offsetHeight-innerHeight;scrollTo({top:top+span*(k/(fronts.length-1)),behavior:"auto"})})});
+ /* portfólio: prévia em desenho segue o cursor sobre cada linha (só no computador) */
+ var pv=document.getElementById("pprev"),pX=0,pY=0,tX=0,tY=0,pS=0,tS=0,pOn=false,pLast=-1;
+ if(fine&&!reduce){
+  fronts.forEach(function(f,k){
+   f.addEventListener("mouseenter",function(){if(k!==pLast){pv.innerHTML=f.querySelector("svg").outerHTML;pLast=k}tS=1;if(!pOn){pOn=true;pTick()}});
+   f.addEventListener("mouseleave",function(){tS=0});
+  });
+  addEventListener("mousemove",function(e){tX=e.clientX;tY=e.clientY;if(!pX){pX=tX;pY=tY}});
+  addEventListener("scroll",function(){tS=0},{passive:true});
+ }
+ function pTick(){pX+=(tX-pX)*.16;pY+=(tY-pY)*.16;pS+=(tS-pS)*.18;
+  pv.style.setProperty("--x",pX+"px");pv.style.setProperty("--y",pY+"px");pv.style.setProperty("--s",pS.toFixed(3));pv.style.setProperty("--rt",((tX-pX)*.05)+"deg");
+  if(tS||pS>.01)requestAnimationFrame(pTick);else pOn=false}
+ fronts.forEach(function(f){f.addEventListener("click",function(){tS=0;pS=0;pv.style.setProperty("--s",0)})});
 
  cclose.addEventListener("click",close);
  addEventListener("keydown",function(e){

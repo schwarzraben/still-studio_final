@@ -26,7 +26,7 @@
   "Clientes satisfeitos":["Satisfied clients","Clientes satisfechos"],"Cada projeto acompanhado de perto, do briefing à entrega.":["Every project followed closely, from brief to delivery.","Cada proyecto acompañado de cerca, del briefing a la entrega."],
   /* portfólio */
   "Se ainda não viu, venha ver!":["If you haven't seen it yet, come and see!","Si aún no lo viste, ¡ven a verlo!"],"Portfólio completo":["Full portfolio","Portafolio completo"],
-  "/ 10 · role para o lado":["/ 10 · scroll sideways","/ 10 · desliza hacia el lado"],"Abrir projeto":["Open project","Abrir proyecto"],
+  "10 projetos · clique para abrir":["10 projects · click to open","10 proyectos · haz clic para abrir"],"Abrir projeto":["Open project","Abrir proyecto"],
   "Projeto":["Project","Proyecto"],"Fechar":["Close","Cerrar"],"Serviço":["Service","Servicio"],"Formato":["Format","Formato"],"Entregáveis":["Deliverables","Entregables"],
   "O desafio":["The challenge","El desafío"],"Como resolvemos":["How we solved it","Cómo lo resolvimos"],"Próximo projeto":["Next project","Siguiente proyecto"],
   "Quero um projeto assim":["I want a project like this","Quiero un proyecto así"],
