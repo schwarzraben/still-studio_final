@@ -21,7 +21,7 @@
   "Uma marca bonita chama atenção. Uma marca bem pensada é entendida, escolhida e lembrada.":["A beautiful brand gets attention. A well-thought-out brand is understood, chosen and remembered.","Una marca bonita llama la atención. Una marca bien pensada es entendida, elegida y recordada."],
   "@hl":["understood|remembered","entendida|recordada"],
   "Em números":["In numbers","En números"],"Anos de estúdio":["Years of studio","Años de estudio"],"Criando marcas, campanhas e projetos culturais.":["Creating brands, campaigns and cultural projects.","Creando marcas, campañas y proyectos culturales."],
-  "Projetos entregues":["Projects delivered","Proyectos entregados"],"De identidades completas a campanhas e peças de motion.":["From full identities to campaigns and motion pieces.","De identidades completas a campañas y piezas de motion."],
+  "Projetos entregues":["Projects delivered","Proyectos entregados"],"Para empresas, marcas e iniciativas de diversos segmentos.":["For companies, brands and initiatives across many industries.","Para empresas, marcas e iniciativas de diversos sectores."],
   "Arquivos criados":["Files created","Archivos creados"],"Peças para o digital e o impresso, prontas para usar.":["Pieces for digital and print, ready to use.","Piezas para digital e impreso, listas para usar."],
   "Clientes satisfeitos":["Satisfied clients","Clientes satisfechos"],"Cada projeto acompanhado de perto, do briefing à entrega.":["Every project followed closely, from brief to delivery.","Cada proyecto acompañado de cerca, del briefing a la entrega."],
   /* portfólio */
