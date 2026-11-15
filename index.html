@@ -456,14 +456,7 @@ body.lock{overflow:hidden}
   <div class="w">
     <span class="tag" data-rv>Vamos conversar</span>
     <h2 aria-label="Vamos dar vida à sua marca.">Vamos dar vida <br>a <span class="slot" id="slot" aria-hidden="true"><span class="on">sua marca.</span><span>seu feed.</span><span>sua ideia.</span><span>seu evento.</span><span>seu produto.</span></span></h2>
-    <div class="ask" data-rv><small>Do que você precisa?</small>
-      <div class="opts" id="opts">
-        <button class="opt" type="button" data-v="branding" aria-pressed="false"><span class="ic sq" aria-hidden="true"><b></b></span><span>Branding<small>Marca e identidade</small></span></button>
-        <button class="opt" type="button" data-v="social" aria-pressed="false"><span class="ic c" aria-hidden="true"><b></b></span><span>Social media<small>Feed e campanhas</small></span></button>
-        <button class="opt" type="button" data-v="motion" aria-pressed="false"><span class="ic u" aria-hidden="true"><b></b></span><span>Motion design<small>Marca em movimento</small></span></button>
-        <button class="opt" type="button" data-v="outro" aria-pressed="false"><span class="ic all" aria-hidden="true"><b></b><b></b><b></b></span><span>Ainda não sei<small>A gente descobre junto</small></span></button>
-      </div></div>
-    <div class="go" data-rv><a class="mag" id="mag" href="proposta/index.html"><span id="magTxt">Vamos conversar</span><b aria-hidden="true">↗</b></a><p id="goTxt">Escolha o que você precisa e <b>a gente já começa a conversa com isso em mente.</b></p></div>
+    <div class="go" data-rv><a class="mag" id="mag" href="proposta/index.html"><span id="magTxt">Vamos conversar</span><b aria-hidden="true">↗</b></a><p id="goTxt">Conte sobre o seu projeto, seja ele qual for. <b>A gente responde com os próximos passos.</b></p></div>
   </div>
 </section>
 </main>
@@ -561,12 +554,7 @@ body.lock{overflow:hidden}
  /* vamos conversar: palavra troca, botão magnético e escolha do serviço */
  var slot=$("#slot span"),si=0;
  if(!reduce)setInterval(function(){var a=slot[si];si=(si+1)%slot.length;var b=slot[si];a.classList.remove("on");a.classList.add("out");b.classList.remove("out");b.classList.add("on");setTimeout(function(){a.classList.remove("out")},700)},2200);
- var mag=document.getElementById("mag"),magTxt=document.getElementById("magTxt"),goTxt=document.getElementById("goTxt"),opts=$("#opts .opt");
- var NAMES={branding:"branding",social:"social media",motion:"motion design",outro:"o seu projeto"};
- opts.forEach(function(o){o.addEventListener("click",function(){var on=o.getAttribute("aria-pressed")!=="true";opts.forEach(function(x){x.setAttribute("aria-pressed","false")});o.setAttribute("aria-pressed",on);
-  if(on){mag.href="proposta/index.html?servico="+o.dataset.v;magTxt.textContent=T("Falar sobre")+" "+T(NAMES[o.dataset.v]);goTxt.innerHTML=T("Perfeito. O formulário já abre com")+" <b>"+T(NAMES[o.dataset.v])+"</b> "+T("marcado.")}
-  else{mag.href="proposta/index.html";magTxt.textContent=T("Vamos conversar");goTxt.innerHTML=T("Escolha o que você precisa e")+" <b>"+T("a gente já começa a conversa com isso em mente.")+"</b>"}
-  if(!reduce)mag.animate([{transform:"scale(1)"},{transform:"scale(1.12)"},{transform:"scale(1)"}],{duration:450,easing:"cubic-bezier(.34,1.56,.64,1)"})})});
+ var mag=document.getElementById("mag");
  if(fine&&!reduce){var go=mag.parentNode;
   go.addEventListener("mousemove",function(e){var r=mag.getBoundingClientRect(),dx=e.clientX-(r.left+r.width/2),dy=e.clientY-(r.top+r.height/2),d=Math.hypot(dx,dy);if(d<r.width*1.1){mag.style.setProperty("--bx",dx*.3+"px");mag.style.setProperty("--by",dy*.3+"px")}else{mag.style.setProperty("--bx","0px");mag.style.setProperty("--by","0px")}});
   go.addEventListener("mouseleave",function(){mag.style.setProperty("--bx","0px");mag.style.setProperty("--by","0px")});}

@@ -18,8 +18,7 @@ Site estático (HTML/CSS/JS puro, sem build), baseado na LP de referência da ST
    o conteúdo fica no objeto `CASES` no script (os 10 cases atuais são exemplos para trocar pelos reais).
 5. **Bora criar um projeto juntos?**: chamada com botão circular girando.
 6. **Serviços**: palavras grandes que andam para o lado com a rolagem; cada uma abre a proposta com o serviço marcado.
-7. **Vamos conversar**: a palavra final troca sozinha, a pessoa escolhe o serviço
-   e o botão leva para `/proposta?servico=...`, que já abre o formulário com o serviço marcado.
+7. **Vamos conversar**: a palavra final troca sozinha e um botão leva ao formulário de proposta
 8. **Rodapé**: a palavra STILL em letras grandes vermelhas que sobem ao aparecer.
 
 Página **Nossa história** em `historia/index.html` (/historia): texto curto da história e chamada para a proposta.

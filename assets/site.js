@@ -45,6 +45,7 @@
   "sua marca.":["your brand.","a tu marca."],"seu feed.":["your feed.","a tu feed."],"sua ideia.":["your idea.","a tu idea."],"seu evento.":["your event.","a tu evento."],"seu produto.":["your product.","a tu producto."],
   "Do que você precisa?":["What do you need?","¿Qué necesitas?"],"Marca e identidade":["Brand and identity","Marca e identidad"],"Feed e campanhas":["Feed and campaigns","Feed y campañas"],
   "Marca em movimento":["Brand in motion","Marca en movimiento"],"Ainda não sei":["Not sure yet","Aún no lo sé"],"A gente descobre junto":["We'll figure it out together","Lo descubrimos juntos"],
+  "Conte sobre o seu projeto, seja ele qual for.":["Tell us about your project, whatever it is.","Cuéntanos sobre tu proyecto, sea cual sea."],"A gente responde com os próximos passos.":["We'll reply with the next steps.","Te respondemos con los próximos pasos."],
   "Escolha o que você precisa e":["Choose what you need and","Elige lo que necesitas y"],"a gente já começa a conversa com isso em mente.":["we'll start the conversation with that in mind.","empezamos la conversación con eso en mente."],
   "Falar sobre":["Talk about","Hablar de"],"branding":["branding","branding"],"social media":["social media","redes sociales"],"motion design":["motion design","motion design"],"o seu projeto":["your project","tu proyecto"],
   "Perfeito. O formulário já abre com":["Great. The form opens with","Perfecto. El formulario se abre con"],"marcado.":["already selected.","ya marcado."],
